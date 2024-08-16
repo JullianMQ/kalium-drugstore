@@ -1,0 +1,15 @@
+/* Make a slide from left animation */
+@keyframes slideLeft {
+    0% {left: 0px}
+    25% {left: -100px}
+    75% {left: -175px}
+    100% {left: -200px}
+}
+#carousel-image {
+    transition: opacity 1.5s linear;
+    opacity: 0;
+}
+
+#carousel-image.show {
+    opacity: 1;
+}

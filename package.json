@@ -1,0 +1,19 @@
+{
+    "name": "kalium-tailwind",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "build-css": "tailwindcss -i ./src/styles.css -o ./public/styles.css --watch"
+    },
+    "keywords": [],
+    "author": "Jullian Quiambao",
+    "license": "ISC",
+    "description": "The Kalium Website made with TailwindCSS and jQuery",
+    "dependencies": {
+        "tailwindcss": "^3.4.9"
+    },
+    "devDependencies": {
+        "tailwindcss-animate": "^1.0.7"
+    }
+}

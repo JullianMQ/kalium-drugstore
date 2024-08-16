@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium Drugstore</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="animations.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="bg-tertiary-800">
+
+  <!-- start nav -->
+  <nav class="border-b border-tertiary-600 bg-tertiary-800  shadow-md shadow-tertiary-500">
+    <div class="flex flex-1 justify-around -space-x-4 p-3">
+      <div id="logo" class="">
+        <a href="index.html"><img src="/images/kalium_trans_small.png" alt="" class="w-24 md:w-48"></a>
+      </div>
+
+      <!-- TODO: start working on search bar -->
+      <div id="navbar" class="hidden xl:flex xl:items-center xl:justify-around">
+        <ul class="hidden xl:flex xl:flex-1 xl:gap-8 ">
+          <li class=""><a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+              href="#products">PRODUCTS</a>
+          </li>
+          <li class=""><a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+              href="#featured">FEATURED</a>
+          </li>
+          <li class=""><a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+              href="#about">ABOUT</a></li>
+        </ul>
+        <!-- this will overlap with the nav when search is active -->
+        <!-- <input type="text" class="animate-fade-in-right"> -->
+      </div>
+
+      <div id="search-bar" class="grid grid-cols-2 items-center justify-center gap-6 md:justify-end">
+        <button class="text-xl hover:text-secondary-700 md:text-3xl" id="search-btn" type="">
+          <!-- <img src="https://img.icons8.com/?size=100&id=Y6AAeSVIcpWt&format=png&color=000000" alt=""> -->
+          <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 hover:text-secondary-700 md:text-3xl"></i>
+        </button>
+      </div>
+
+      <!-- add user icon and profile -->
+      <!-- change grid-cols-3 to grid-cols-4 -->
+      <div class="flex items-center justify-center space-x-4">
+        <a href="#"><i class="fa-solid fa-user text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
+        <a href="#"><i
+            class="fa-solid fa-bag-shopping mb-1 text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
+      </div>
+
+    </div>
+  </nav>
+  <!-- end nav -->
+
+  <!-- hero section -->
+  <div class="border-b border-tertiary-600 bg-tertiary-700 shadow-md shadow-tertiary-500">
+    <!-- add hero pictures here -->
+    <div class="flex flex-1 items-center justify-around ">
+      <div id="carousel" class="flex items-center justify-around justify-self-center ">
+        <button><img class="w-4 rotate-180 lg:w-7 " src="/images/right-arrow.png" alt=""></button>
+        <img id="carousel-image" class="object-scale-down xl:top-5 xl:w-7/12" src="/images/pharmacist.jpg" alt="">
+        <button><img class="w-4 lg:w-7 " src="/images/right-arrow.png" alt=""></button>
+      </div>
+
+    </div>
+  </div>
+  <!-- end hero section -->
+
+  <!-- products section -->
+  <main class="*:xl:text-4xl *:font-semibold *:lg:mx-[10.7rem] *:mx-12 *:md:text-lg *:sm:text-sm *:my-8 *:border *:bg-tertiary-600 
+      *:shadow-lg *:p-2 *:shadow-tertiary-500 *:border-tertiary-500 *:text-secondary-500 xl:mt-12">
+    <div class="">
+      <h1 class="">Prescription</h1>
+    </div>
+    <div class="">
+      <h1 class="">Featured Product</h1>
+    </div>
+    <div class="">
+      <h1 class="">Personal Care</h1>
+    </div>
+    <div class="">
+      <h1 class="">Baby Products</h1>
+    </div>
+  </main>
+  <!-- end products section -->
+
+  <footer>
+    <a href="https://www.flaticon.com/free-icons/next" target="_blank" title="next icons">
+      Next icons created by Roundicons - Flaticon
+    </a>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="index.js"> </script>
+</body>
+
+</html>
