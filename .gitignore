@@ -6,6 +6,11 @@ luac.out
 *.zip
 *.tar.gz
 
+# Vim related files
+*.vim
+~/.vim/backup/*.gitignore
+~/.vim/backup/*
+
 # Object files
 *.o
 *.os
