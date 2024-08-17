@@ -11,6 +11,9 @@ luac.out
 ~/.vim/backup/*.gitignore
 ~/.vim/backup/*
 
+# Ignore node modules
+./node_modules/*
+
 # Object files
 *.o
 *.os
