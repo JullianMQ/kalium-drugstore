@@ -12,7 +12,7 @@ luac.out
 ~/.vim/backup/*
 
 # Ignore node modules
-./node_modules/*
+node_modules/*
 
 # Object files
 *.o
