@@ -1,4 +1,4 @@
-const path = "/images/";
+const path = "./../images/";
 const image_array = ["pharmacist.jpg", "pharmacist_showing.jpg", "health_drugs.jpg"];
 
 let index = 0;
