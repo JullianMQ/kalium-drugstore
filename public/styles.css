@@ -555,8 +555,8 @@ video {
 }
 
 .logo-gradient {
-  background: rgb(255, 169, 0);
-  background: linear-gradient(180deg, rgba(255, 169, 0, 1) 0%, rgba(255, 127, 0, 1) 20%, rgba(255, 127, 0, 1) 80%, rgba(255, 169, 0, 1) 100%);
+  background: rgb(254, 174, 0);
+  background: linear-gradient(180deg, rgba(254, 174, 0, 1) 0%, rgba(255, 127, 0, 1) 20%, rgba(255, 127, 0, 1) 80%, rgba(254, 174, 0, 1) 100%);
 }
 
 .row-span-2 {
@@ -832,11 +832,6 @@ video {
   border-bottom-width: 1px;
 }
 
-.border-gold-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(245 163 0 / var(--tw-border-opacity));
-}
-
 .border-primary-400 {
   --tw-border-opacity: 1;
   border-color: rgb(254 126 0 / var(--tw-border-opacity));
@@ -865,11 +860,6 @@ video {
 .border-tertiary-600 {
   --tw-border-opacity: 1;
   border-color: rgb(233 233 233 / var(--tw-border-opacity));
-}
-
-.border-primary {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 165 0 / var(--tw-border-opacity));
 }
 
 .bg-primary-400 {
@@ -910,11 +900,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 165 0 / var(--tw-bg-opacity));
 }
 
 .bg-clip-text {
@@ -1052,11 +1037,6 @@ video {
   color: rgb(255 126 0 / var(--tw-text-opacity));
 }
 
-.text-primary-600 {
-  --tw-text-opacity: 1;
-  color: rgb(254 138 0 / var(--tw-text-opacity));
-}
-
 .text-secondary-500 {
   --tw-text-opacity: 1;
   color: rgb(0 153 255 / var(--tw-text-opacity));
@@ -1186,11 +1166,6 @@ input[type=number] {
   border-color: rgb(254 168 0 / var(--tw-border-opacity));
 }
 
-.hover\:border-primary-800:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 219 153 / var(--tw-border-opacity));
-}
-
 .hover\:border-secondary-600:hover {
   --tw-border-opacity: 1;
   border-color: rgb(51 173 255 / var(--tw-border-opacity));
@@ -1199,11 +1174,6 @@ input[type=number] {
 .hover\:border-tertiary-800:hover {
   --tw-border-opacity: 1;
   border-color: rgb(244 244 244 / var(--tw-border-opacity));
-}
-
-.hover\:border-gold-700:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 202 96 / var(--tw-border-opacity));
 }
 
 .hover\:bg-primary-600:hover {
