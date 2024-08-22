@@ -18,7 +18,7 @@
 <body class="bg-tertiary-800">
 
   <!-- start nav -->
-  <nav class="border-b border-tertiary-600 bg-tertiary-800 shadow-md shadow-tertiary-500">
+  <nav id="home" class="border-b border-tertiary-600 bg-tertiary-800 shadow-md shadow-tertiary-500">
     <div class="flex flex-1 justify-around -space-x-4 p-3">
       <div id="logo" class="">
         <a href="index.html"><img src="./../images/kalium_trans_small.png" alt="" class="w-24 md:w-48" /></a>
@@ -80,9 +80,8 @@
   <!-- end hero section -->
 
   <!-- products section -->
-  <main class="xl:mt-12">
-    <div
-      class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+  <main id="products" class="xl:mt-12">
+    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Prescription</h1>
     </div>
 
@@ -638,8 +637,7 @@
       </div>
     </div>
 
-    <div
-      class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Babies Needs</h1>
     </div>
 
@@ -1198,7 +1196,7 @@
   </main>
   <!-- end products section -->
 
-  <hr class="mx-10 my-12 border-2 border-tertiary-500 lg:mx-32">
+  <hr id="featured" class="mx-10 my-12 border-2 border-tertiary-500 lg:mx-20 xl:mx-32">
 
   <!--   V1 featured section -->
   <!-- <div -->
@@ -1347,11 +1345,89 @@
   </div>
   <!--   end V2 featured section -->
 
-  <footer>
-    <a href="https://www.flaticon.com/free-icons/next" target="_blank" title="next icons">
-      Next icons created by Roundicons - Flaticon
-    </a>
+  <!-- start footer -->
+  <footer class="mt-12 bg-primary-400 text-tertiary-700">
+
+    <div class="mx-10 lg:mx-20 xl:mx-32">
+      <div class="flex max-[425px]:place-content-center">
+        <div class="max-w-72 flex ">
+          <div class="bg-white rounded-b-lg p-4 grid">
+            <img class="justify-self-center" src="../images/kalium_small.jpg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-12 md:grid-cols-3 md:grid-rows-1">
+        <div class="flex flex-col gap-8">
+          <div class="">
+            <h2 class="text-xl font-bold">
+              Kalium Drugstore
+            </h2>
+          </div>
+          <div class="">
+            <ul class="*:mb-2 *:text-lg flex flex-col">
+              <li class="">Location: <br>
+                <span class="text-base font-semibold">350 Calzadang Bayu, Porac Pampanga 2008
+                  Porac, Philippines</span>
+              </li>
+
+              <li class="">Contact No: <br>
+                <span class="text-base font-semibold">0927 841 4499</span>
+              </li>
+
+              <li class=""> Email: <br>
+                <span class="text-base font-semibold">kaliumdrugstore@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col gap-8">
+          <div class="">
+            <h2 class="text-xl font-bold">
+              Links
+            </h2>
+          </div>
+          <div class="">
+            <ul class="*:mb-2 *:text-base flex flex-col">
+              <li class="font-semibold"><a href="#home">Home</a></li>
+              <li class="font-semibold"><a href="#products">Products</a></li>
+              <li class="font-semibold"><a href="#featured">Featured</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col gap-8">
+          <div class="">
+            <h2 class="text-xl font-bold">
+              Customer Care
+            </h2>
+          </div>
+          <div class="">
+            <ul class="*:mb-2 *:text-base flex flex-col">
+              <li class="font-semibold">FAQs</li>
+              <li class="font-semibold">Privacy Policy</li>
+              <li class="font-semibold">Terms & Conditions</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col items-center justify-center">
+        <p>&copy; Kalium Drugstore 2024</p>
+      </div>
+
+      <div class="">
+        <p>
+          Thanks to:
+        </p>
+        <a href="https://www.flaticon.com/free-icons/next" target="_blank" title="next icons">
+          Roundicons - Flaticon: Next icons
+        </a>
+      </div>
+
+    </div>
   </footer>
+  <!-- end footer -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="index.js"></script>
 </body>
