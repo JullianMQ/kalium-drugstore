@@ -33,7 +33,7 @@ $("#submit-btn").on("click", () => {
     last_val = last_name.val();
     email_val = email.val();
     passwd_val = passwd.val();
-    
+
     $("#det-first_name").attr("value", `${first_val}`);
     $("#det-last_name").attr("value", `${last_val}`);
     $("#det-email").attr("value", `${email_val}`);
@@ -49,6 +49,14 @@ $("#submit-btn").on("click", () => {
 
 $("#det-passwd").on("mouseenter", () => {
     $("#det-passwd").attr("value", `${passwd_val}`);
+})
+
+$("#det-passwd").on("click", () => {
+    if (passwd_val === "************") {
+        $("#det-passwd").attr("value", `${passwd_val}`);
+    } else {
+        $("#det-passwd").attr("value", "************");
+    }
 })
 
 $("#det-passwd").on("mouseleave", () => {
@@ -75,13 +83,13 @@ passwd.on("focusout", () => {
     if (passwd.val() != re_passwd.val()) {
         $("#submit-btn").attr("disabled", true);
         $("#submit-btn").text("Passwords do not match");
-    } else if (passwd.val() === "" && re_passwd.val() === ""){
+    } else if (passwd.val() === "" && re_passwd.val() === "") {
         $("#submit-btn").attr("disabled", false);
         $("#submit-btn").text("Submit");
     } else if (passwd.val() === re_passwd.val()) {
         $("#submit-btn").attr("disabled", false);
         $("#submit-btn").text("Submit");
-    }else {
+    } else {
         $("#submit-btn").attr("disabled", false);
     }
 })
@@ -90,13 +98,13 @@ re_passwd.on("focusout", () => {
     if (passwd.val() != re_passwd.val()) {
         $("#submit-btn").attr("disabled", true);
         $("#submit-btn").text("Passwords do not match");
-    } else if (passwd.val() === "" && re_passwd.val() === ""){
+    } else if (passwd.val() === "" && re_passwd.val() === "") {
         $("#submit-btn").attr("disabled", false);
         $("#submit-btn").text("Submit");
     } else if (passwd.val() === re_passwd.val()) {
         $("#submit-btn").attr("disabled", false);
         $("#submit-btn").text("Submit");
-    }else {
+    } else {
         $("#submit-btn").attr("disabled", false);
     }
 })
