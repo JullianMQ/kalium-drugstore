@@ -15,50 +15,105 @@
     rel="stylesheet">
 </head>
 
-<body class="flex h-dvh flex-col items-center justify-center bg-tertiary-900">
-  <div class=" place-content-center">
-    <form
-      class="flex flex-col gap-y-6 rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 px-8 shadow-lg shadow-tertiary-500 lg:p-12 lg:px-28"
-      action="">
-      <h1 class="font-semibold xl:text-3xl">Create an Account</h1>
+<body class="">
+  <div class="md:h-dvh mt-8 flex flex-col place-content-center justify-center gap-8 
+      bg-tertiary-900 md:mt-0 md:flex md:flex-row md:items-center md:gap-4">
+    <form class="flex flex-col gap-y-6 rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 lg:p-12 lg:px-28" action="">
+      <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Create an Account</h1>
       <div class="grid grid-rows-2 ">
         <label class="" for="first_name">First Name</label>
-        <input class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
-          name="first_name" value="ciea">
+        <input id="form-first_name" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
+          name="first_name" value="">
       </div>
 
       <div class="grid grid-rows-2 ">
         <label class="" for="last_name">Last Name</label>
-        <input class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
+        <input id="form-last_name" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
           name="last_name" value="">
       </div>
 
       <div class="grid grid-rows-2 ">
         <label class="" for="email">Email</label>
-        <input class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text" name="email"
+        <input id="form-email" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text" name="email"
           value="">
       </div>
 
       <div class="grid grid-rows-2 ">
         <label class="" for="passwd">Password</label>
-        <input class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="password"
+        <input id="form-passwd" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="password"
           name="passwd" value="">
       </div>
 
       <div class="mb-4 grid grid-rows-2">
         <label class="" for="re_passwd">Re-enter Password</label>
-        <input class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="password"
+        <input id="form-re_passwd" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="password"
           name="re_passwd" value="">
       </div>
 
       <div class="flex flex-col">
-        <button
-          class="rounded-md border-2 border-secondary-500 bg-secondary-500 py-2 text-tertiary-700 hover:border-secondary-600 hover:bg-secondary-700"
-          type="submit">Submit</button>
+        <button id="submit-btn" class="rounded-md border-2 border-secondary-500 bg-secondary-500 py-2 
+            text-tertiary-700 hover:border-secondary-800 hover:bg-secondary-700 active:scale-105
+            disabled:scale-100 disabled:border-tertiary-200 disabled:bg-tertiary-200" type="button" 
+            >Submit</button>
         <small class="text-center">Have an account? <a class="text-secondary-500 hover:underline"
             href="login.html">Login</a></small>
       </div>
     </form>
+
+    <div id="form-details" class="">
+
+      <div class="mb-8 flex flex-col rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 md:mb-0 lg:p-12 lg:px-28" action="">
+
+        <div class="mb-8 xl:mb-6">
+          <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Here are your details</h1>
+          <h1 class="mb-8 font-semibold xl:text-2xl">Are they correct?</h1>
+        </div>
+
+        <div class="flex flex-col gap-y-8 rounded-lg ">
+          <div class="grid grid-rows-2 ">
+            <label class="" for="first_name">First Name</label>
+            <input id="det-first_name" class="rounded border border-tertiary-500 bg-tertiary-800 p-1 px-2 
+                hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+              name="first_name" value="" disabled>
+          </div>
+
+          <div class="grid grid-rows-2 ">
+            <label class="" for="last_name">Last Name</label>
+            <input id="det-last_name"
+              class="rounded border border-tertiary-500 bg-tertiary-800 p-1 px-2 hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800"
+              type="text" name="last_name" value="" disabled>
+          </div>
+
+          <div class="grid grid-rows-2 ">
+            <label class="" for="email">Email</label>
+            <input id="det-email" class="rounded border border-tertiary-500 bg-tertiary-800 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+              name="email" value="" disabled>
+          </div>
+
+          <div class="grid grid-rows-2 ">
+            <label class="" for="passwd">Password</label>
+            <input id="det-passwd" class="rounded border border-tertiary-500 bg-tertiary-800 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+              name="passwd" value="" disabled>
+          </div>
+
+          <div class="*:p-2 *:px-8 mt-4 flex flex-grow justify-between gap-4 pb-4">
+            <button id="incorrect-btn" class="rounded-md border-2 border-red-400 bg-red-400 py-2 
+              text-tertiary-700 hover:border-red-700 hover:bg-red-700
+              active:scale-105" type="button">Incorrect</button>
+
+                <a href="/public/" class="rounded-md border-2 border-teal-500 bg-teal-500 py-2 
+                  text-tertiary-700 hover:border-teal-400 hover:bg-teal-400 hover:text-tertiary-200
+                  active:scale-105" >Proceed</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="index.js"> </script>
