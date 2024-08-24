@@ -79,7 +79,7 @@ $("#incorrect-btn").on("click", () => {
     $("#submit-btn").attr("disabled", false);
 })
 
-passwd.on("focusout", () => {
+passwd.on("input", () => {
     if (passwd.val() != re_passwd.val()) {
         $("#submit-btn").attr("disabled", true);
         $("#submit-btn").text("Passwords do not match");
@@ -94,7 +94,7 @@ passwd.on("focusout", () => {
     }
 })
 
-re_passwd.on("focusout", () => {
+re_passwd.on("input", () => {
     if (passwd.val() != re_passwd.val()) {
         $("#submit-btn").attr("disabled", true);
         $("#submit-btn").text("Passwords do not match");
@@ -108,3 +108,19 @@ re_passwd.on("focusout", () => {
         $("#submit-btn").attr("disabled", false);
     }
 })
+
+// $("#open-modal").on("click", () => {
+//     // if ($("#modal").hasClass("hidden") === false) {
+//     if ($("#modal").attr("opacity") === 1) {
+//         $("#modal").animate({
+//             opacity: 0,
+//         }, 500)
+//         // $("#modal").addClass("hidden");
+//     }
+//     else {
+//         $("#modal").animate({
+//             opacity: 1,
+//         }, 500)
+//         // $("#modal").removeClass("hidden");
+//     }
+// })

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium Drugstore</title>
+  <link href="styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="animations.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="">
+  <div class="md:h-dvh mt-8 flex flex-col place-content-center justify-center gap-8 
+      bg-tertiary-900 md:mt-0 md:flex md:flex-row md:items-center md:gap-4">
+    <form id="form-credentials" class="flex flex-col gap-y-6 rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 lg:p-12 lg:px-28" action="">
+      <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Let's get you started</h1>
+      <div class="grid grid-rows-2 ">
+        <label class="" for="first_name">First Name</label>
+        <input id="form-first_name" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="text" name="first_name" value="" required placeholder="Jose">
+      </div>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="last_name">Last Name</label>
+        <input id="form-last_name" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="text" name="last_name" value="" required placeholder="Chan">
+      </div>
+
+      <div class="grid">
+        <label for="gender" class="mb-2">Gender</label>
+        <div class="flex gap-12">
+          <div class="flex gap-4">
+            <label for="form-gender">Male</label>
+            <input class="form-gender" type="radio" name="form-gender" value="male">
+
+          </div>
+          <div class="flex gap-4">
+            <label for="form-gender">Female</label>
+            <input class="form-gender" type="radio" name="form-gender" value="female">
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="phoneno">Phone Number</label>
+        <input id="form-phoneno" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="tel" name="phoneno" value="" pattern="[0-9]{4}-[0-9]{3}-[0-9]{4}" required placeholder="XXXX-XXX-XXXX">
+      </div>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="address">Physical Address</label>
+        <textarea id="form-address" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="textarea" name="address" value="" required placeholder="No. 123, XYZ Street, ABC City"></textarea>
+      </div>
+
+      <div class="mb-4 grid grid-rows-2">
+        <label class="" for="date_of_birth">Date of Birth</label>
+        <input id="form-date_of_birth" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="date" name="date_of_birth">
+      </div>
+
+      <div class="flex flex-col">
+        <button id="next-btn" class="rounded-md border-2 border-secondary-500 bg-secondary-500 py-2 
+            text-tertiary-700 hover:border-secondary-800 hover:bg-secondary-700 active:scale-105
+            disabled:scale-100 disabled:border-tertiary-200 disabled:bg-tertiary-200" type="button">Next</button>
+      </div>
+    </form>
+
+    <form id="user-form" class="hidden flex flex-col gap-y-6 rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 lg:p-12 lg:px-28" action="">
+      <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Create an Account</h1>
+      <div class="grid grid-rows-2 ">
+        <label class="" for="passwd">Username</label>
+        <input id="form-username" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="text" name="username" value="">
+      </div>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="passwd">Password</label>
+        <input id="form-passwd" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="password" name="passwd" value="">
+      </div>
+
+      <div class="mb-4 grid grid-rows-2 ">
+        <label class="" for="email">Email Address</label>
+        <input id="form-email" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
+          name="email" value="">
+      </div>
+
+      <div class="flex flex-col">
+        <button id="submit-btn" class="rounded-md border-2 border-secondary-500 bg-secondary-500 py-2 
+            text-tertiary-700 hover:border-secondary-800 hover:bg-secondary-700 active:scale-105
+            disabled:scale-100 disabled:border-tertiary-200 disabled:bg-tertiary-200" type="button">Submit</button>
+      </div>
+    </form>
+
+
+    <div id="form-details" class="">
+
+      <div class="mb-8 flex flex-col rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 md:mb-0 lg:p-12 lg:px-28" action="">
+
+        <div class="mb-8 xl:mb-6">
+          <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Here are your details</h1>
+          <h1 class="mb-8 font-semibold xl:text-2xl">Are they correct?</h1>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="first_name">First Name</label>
+          <input id="det-first_name" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="first_name" value="" required disabled>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="last_name">Last Name</label>
+          <input id="det-last_name" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="last_name" value="" required disabled>
+        </div>
+
+        <div class="grid">
+          <label for="gender" class="mb-2">Gender</label>
+          <div class="flex gap-12">
+            <input id="det-gender" class="rounded border border-tertiary-500 p-1 px-4 
+                hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+              name="first_name" value="" required disabled>
+          </div>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="phoneno">Phone Number</label>
+          <input id="det-phoneno" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="tel"
+            name="phoneno" value="" required disabled>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="address">Physical Address</label>
+          <textarea id="det-address" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="textarea"
+            name="address" value="" disabled></textarea>
+        </div>
+
+        <div class="mb-4 grid grid-rows-2">
+          <label class="" for="date_of_birth">Age</label>
+          <input id="det-date_of_birth" class="rounded border border-tertiary-500 p-1 px-4 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="first_name" value="" required disabled>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="username">Username</label>
+          <input id="det-username" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="username" value="" required disabled>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="email">Email</label>
+          <input id="det-email" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="email" value="" required disabled>
+        </div>
+
+        <div class="grid grid-rows-2 ">
+          <label class="" for="password">Password</label>
+          <input id="det-passwd" class="rounded border border-tertiary-500 p-1 px-2 
+              hover:border-teal-500 hover:bg-teal-500 hover:font-semibold hover:text-tertiary-800" type="text"
+            name="password" value="" required disabled>
+        </div>
+
+
+          <div class="*:p-2 *:px-8 mt-4 flex flex-grow justify-between gap-4 pb-4">
+            <button id="incorrect-btn" class="rounded-md border-2 border-red-400 bg-red-400 py-2 
+              text-tertiary-700 hover:border-red-700 hover:bg-red-700
+              active:scale-105" type="button">Incorrect</button>
+
+                <a href="/public/" class="rounded-md border-2 border-teal-500 bg-teal-500 py-2 
+                  text-tertiary-700 hover:border-teal-400 hover:bg-teal-400 hover:text-tertiary-200
+                  active:scale-105" >Proceed</a>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="sample_signup.js"> </script>
+</body>
+
+</html>
