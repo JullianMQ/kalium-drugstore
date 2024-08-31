@@ -1,0 +1,127 @@
+Prescription
+
+    CARDIX BetaBlocker 50mg Tab
+    ₱ 150.00, 30
+
+    ZYLORIC Allopurinol 100mg Tab
+    ₱ 120.00, 28
+
+    FENOFIBE Fenofibrate 200mg Cap
+    ₱ 180.00, 20
+
+    CLOPIDOGREL Plavix 75mg Tab
+    ₱ 200.00, 30
+
+    LORZAPINE Lorazepam 1mg Tab
+    ₱ 90.00, 60
+
+    HYPOTENSIN Amlodipine 10mg Tab
+    ₱ 140.00, 30
+
+    OMEZOL Omezaprole 20mg Cap
+    ₱ 100.00, 15
+
+    LIPIDEX Atorvastatin 40mg Tab
+    ₱ 160.00, 30
+
+    METFORMEX Metformin 500mg Tab
+    ₱ 130.00, 60
+
+    PROGEL Prednisolone 5mg Tab
+    ₱ 110.00, 20
+
+Featured Products
+
+    VITA-BOOST Multivitamins 30 Tabs
+    ₱ 200.00, 30
+
+    PAIN-X Ibuprofen 400mg Tab
+    ₱ 75.00, 50
+
+    DERMABALM Moisturizing Cream 50g
+    ₱ 90.00, 25
+
+    ALLERNOX Cetirizine 10mg Tab
+    ₱ 95.00, 20
+
+    COUGH-EASE Dextromethorphan 10mg/5ml Syr
+    ₱ 130.00, 100ml
+
+    SOMNEX Melatonin 5mg Tab
+    ₱ 85.00, 20
+
+    SENPURE Senna Extract 8mg Tab
+    ₱ 70.00, 30
+
+    CALCIUMPLUS Calcium + Vitamin D 600mg/400IU Tab
+    ₱ 140.00, 30
+
+    LAXOFAST Psyllium Husk 7g Powder
+    ₱ 120.00, 200g
+
+    ANTIALLERGY Loratadine 10mg Tab
+    ₱ 90.00, 20
+
+Babies' Needs
+
+    BABYCARE Gentle Baby Shampoo 200ml
+    ₱ 100.00, 20
+
+    LITTLEFEET Baby Diapers Size M 30pcs
+    ₱ 250.00, 10
+
+    SLEEPYTIME Baby Sleep Aid Drops 15ml
+    ₱ 120.00, 15
+
+    BABYVIT Multivitamins for Infants 30ml
+    ₱ 150.00, 25
+
+    DIAPER RASH CREAM Zinc Oxide 50g
+    ₱ 90.00, 30
+
+    GENTLE BABY WIPES 100pcs Pack
+    ₱ 80.00, 40
+
+    HAPPYFEET Baby Lotion 150ml
+    ₱ 110.00, 25
+
+    COLIC RELIEF Gas Drops 30ml
+    ₱ 140.00, 20
+
+    BABYFORMULA Nutritional Powder 400g
+    ₱ 450.00, 15
+
+    SOOTHING GEL Baby Teething Gel 20g
+    ₱ 130.00, 25
+
+Personal Care
+
+    GLOWING SKIN Vitamin C Serum 30ml
+    ₱ 180.00, 20
+
+    FRESHMINT Toothpaste 100g
+    ₱ 60.00, 50
+
+    SOFTFEEL Body Lotion 250ml
+    ₱ 120.00, 30
+
+    MENSCARE Shaving Cream 150ml
+    ₱ 90.00, 25
+
+    EYESHIELD Anti-Aging Eye Cream 15ml
+    ₱ 200.00, 15
+
+    MOISTUREX Hand Cream 100ml
+    ₱ 70.00, 40
+
+    SILKYHAIR Shampoo 250ml
+    ₱ 110.00, 25
+
+    NATURALBODY Deodorant Spray 150ml
+    ₱ 85.00, 30
+
+    SKINCARE Toner 200ml
+    ₱ 150.00, 20
+
+    HERBALSOAP Anti-Bacterial Soap 100g
+    ₱ 50.00, 50
