@@ -25,46 +25,69 @@
       </div>
 
       <!-- TODO: finish search bar -->
-      <div id="navbar" class="hidden xl:flex xl:items-center xl:justify-around">
-        <ul class="hidden xl:flex xl:flex-1 xl:gap-8">
-          <li class="">
-            <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
-              href="#products">PRODUCTS</a>
-          </li>
-          <li class="">
-            <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
-              href="#featured">FEATURED</a>
-          </li>
-          <li class="">
-            <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
-              href="#about">ABOUT</a>
-          </li>
-        </ul>
+      <div id="navbar" class=" overflow-hidden xl:flex xl:items-center xl:justify-around">
+        <div id="nav-links" class="">
+          <ul class="hidden xl:flex xl:flex-1 xl:gap-8">
+            <li class="">
+              <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+                href="#products">PRODUCTS</a>
+            </li>
+            <li class="">
+              <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+                href="#featured">FEATURED</a>
+            </li>
+            <li class="">
+              <a class="text-md font-semibold text-secondary-500 hover:text-secondary-700 md:text-lg"
+                href="#about">ABOUT</a>
+            </li>
+          </ul>
+        </div>
         <!-- this will overlap with the nav when search is active -->
-        <!-- <input type="text" class="animate-fade-in-right"> -->
-      </div>
+        <input id="search-input" type="text"
+          class="py-2 px-14 border border-primary hidden focus:border-2 focus-visible:outline-none">
+        <div id="search-bar" class="grid grid-cols-2 mx-12 items-center justify-center gap-6 md:justify-end">
+          <button id="search-btn" class="text-xl hover:text-secondary-700 md:text-3xl" type="">
+            <!-- <img src="https://img.icons8.com/?size=100&id=Y6AAeSVIcpWt&format=png&color=000000" alt=""> -->
+            <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 hover:text-secondary-700 md:text-3xl"></i>
+          </button>
+        </div>
 
-      <div id="search-bar" class="grid grid-cols-2 items-center justify-center gap-6 md:justify-end">
-        <button class="text-xl hover:text-secondary-700 md:text-3xl" id="search-btn" type="">
-          <!-- <img src="https://img.icons8.com/?size=100&id=Y6AAeSVIcpWt&format=png&color=000000" alt=""> -->
-          <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 hover:text-secondary-700 md:text-3xl"></i>
-        </button>
       </div>
 
       <!-- add user icon and profile -->
       <!-- change grid-cols-3 to grid-cols-4 -->
       <div class="flex items-center justify-center space-x-4">
-        <a href="#"><i
-            class="fa-solid fa-user text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
-        <a href="#"><i
-            class="fa-solid fa-bag-shopping mb-1 text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
+        <a href="#"><i class="fa-solid fa-user text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
+        <div class="relative">
+          <a id="shopping-cart" class="peer" href="#"><i
+              class="peer active:scale-110 fa-solid fa-bag-shopping mb-1 text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl "></i>
+          </a>
+          <div id="cart-dropdown"
+            class="hidden hover:block transition-all duration-1000 absolute right-2 top-8 z-10 w-80 rounded shadow-sm shadow-tertiary-400 border border-tertiary-700 bg-tertiary-600 p-2 pt-4 pb-6 peer-hover:block">
+            <div class="flex flex-col items-center justify-center">
+              <p class="text-nowrap text-lg font-bold">CART ITEMS</p>
+              <ul id="cart-items" class="flex w-72 flex-col gap-2 text-xs text-gray-700">
+
+              </ul>
+              <hr class="my-2 w-72 border border-secondary-500">
+              <div class="flex w-72 justify-between">
+                <p class="text-xs"> Total Cost </p>
+                <p id="cart-total-cost" class="text-xs">₱ 0.00</p>
+              </div>
+              <button class="mt-4 px-24 rounded border-2 border-secondary-500 bg-secondary-500 p-1 text-tertiary-800 
+                hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
   <!-- end nav -->
 
   <!-- hero section -->
-  <div class="border-b border-tertiary-600 bg-tertiary-700 shadow-md shadow-tertiary-500">
+  <div id="hero-section" class="border-b border-tertiary-600 bg-tertiary-700 shadow-md shadow-tertiary-500">
     <!-- add hero pictures here -->
     <div class="flex flex-1 items-center justify-around">
       <div id="carousel" class="flex items-center justify-around justify-self-center">
@@ -86,1112 +109,383 @@
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Prescription</h1>
     </div>
 
-    <div class="flex flex-1 flex-shrink-0 snap-x scroll-smooth px-32 max-[320px]:px-20 justify-start gap-4 overflow-x-auto 
-        md:pl-0 md:mx-8 md:gap-2 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
+    <div class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+        md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="prod-item-1-img" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg"
+            alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
+
+          <h2 id="prod-item-1" class="md:text-md text-center text-sm text-tertiary-100">
             Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-1-price">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-1-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
+          md:snap-end">
+
+        <div id="" class="card-top">
+          <img id="prod-item-2-img" class="" src="../images/betablock-xl-50-tablet-500x500.webp" alt="" />
+        </div>
+        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
+
+          <h2 id="prod-item-2" class="md:text-md text-center text-sm text-tertiary-100">
+            CARDIX BetaBlocker 50mg Tab
+          </h2>
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-2-price">150.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-2-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
+                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
+              Add to Cart
+            </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="prod-item-3-img" class="" src="../images/Zyrolic-100mg-Tablet.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="prod-item-3" class="md:text-md text-center text-sm text-tertiary-100">
+            ZYLORIC Allopurinol 100mg Tab
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-3-price">120.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-3-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="prod-item-4-img" class="" src="../images/fenofibrate.webp" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="prod-item-4" class="md:text-md text-center text-sm text-tertiary-100">
+            FENOFIBE Fenofibrate 200mg Cap
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-4-price">180.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-4-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="prod-item-5-img" class="" src="../images/plavix-clopidogrel-75-mg-tablets-500x500.webp" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="prod-item-5" class="md:text-md text-center text-sm text-tertiary-100">
+            CLOPIDOGREL Plavix 75mg Tab
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-5-price">200.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-5-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="prod-item-6-img" class="" src="../images/lorcam-1-Lorazepam-1mg.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="prod-item-6" class="md:text-md text-center text-sm text-tertiary-100">
+            LORZAPINE Lorazepam 1mg Tab
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
+              id="prod-item-6-price">20.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="prod-item-6-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
+
+
     </div>
 
     <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Featured Product</h1>
     </div>
 
-    <div class="flex flex-1 flex-shrink-0 snap-x scroll-smooth pl-32 max-[320px]:pl-20 justify-start gap-4 overflow-x-auto 
-        md:pl-0 md:mx-8 md:gap-2 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
+
+    <div class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+        md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
+          md:snap-end">
+
+        <div id="" class="card-top">
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
+        </div>
+        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
+          </h2>
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
+                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
+              Add to Cart
+            </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
+
         <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
+          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
         </div>
         <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
+
+          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
+            Placeholder Item
           </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
+
+          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
+          <div class="flex justify-center">
+
+            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
               Add to Cart
             </button>
+
           </div>
         </div>
       </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
+
+
     </div>
 
     <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Babies Needs</h1>
     </div>
 
-    <div class="flex flex-1 flex-shrink-0 snap-x scroll-smooth pl-32 max-[320px]:pl-20 justify-start gap-4 overflow-x-auto 
-        md:pl-0 md:mx-8 md:gap-2 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Personal Care</h1>
-    </div>
-
-    <div class="flex flex-1 flex-shrink-0 snap-x scroll-smooth pl-32 max-[320px]:pl-20 justify-start gap-4 overflow-x-auto 
-        md:pl-0 md:mx-8 md:gap-2 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img class="" src="https://placehold.co/600x400/png" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-          <h2 class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
-          <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ 99.00</p>
-          <div class="flex justify-around gap-3">
-            <div class="rounded border-2 border-primary-500 p-1 hover:border-primary-700">
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                -
-              </button>
-              <input class="max-w-8 bg-tertiary-800 text-center" type="number" name="" min="1" value="1" />
-              <button class="text-primary-500 hover:-scale-y-125 active:-scale-y-150" type="">
-                +
-              </button>
-            </div>
-            <button class="rounded border-2 border-primary-500 bg-primary-500 p-1  text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
 
   </main>
@@ -1281,9 +575,10 @@
         <div class="mx-2 flex flex-col place-content-center xl:mx-4">
           <h1 class="bg-secondary-500 bg-clip-text font-semibold text-transparent">
             <span
-              class="rounded-lg border-2 border-primary-400 logo-gradient py-3 pl-4 pr-1
-                text-tertiary-700 font-black min-[400px]:pl-4 md:text-2xl lg:text-lg xl:pl-4 xl:text-2xl 2xl:pl-5 2xl:text-4xl">H
-              <sup class="align-top text-xs"><sup class="align-middle font-black xl:align-super"> &nbsp;&nbsp; 1</sup></sup></span>
+              class="logo-gradient rounded-lg border-2 border-primary-400 py-3 pl-4 pr-1
+                font-black text-tertiary-700 min-[400px]:pl-4 md:text-2xl lg:text-lg xl:pl-4 xl:text-2xl 2xl:pl-5 2xl:text-4xl">H
+              <sup class="align-top text-xs"><sup class="align-middle font-black xl:align-super"> &nbsp;&nbsp;
+                  1</sup></sup></span>
 
             <span class="min-[400px]:text-xs xl:text-sm 2xl:text-lg">ELIUM'S WELCOMING</span>
           </h1>
@@ -1325,8 +620,8 @@
           <h1 class="bg-secondary-500 bg-clip-text font-semibold text-transparent lg:text-xs xl:text-sm 2xl:text-lg">
 
             <span
-              class="rounded-lg border-2 border-primary-400 logo-gradient py-3 pl-4 pr-1
-                text-tertiary-700 font-black min-[400px]:pl-4 md:text-2xl lg:text-lg xl:pl-4 xl:text-2xl 2xl:pl-5 2xl:text-4xl">Z
+              class="logo-gradient rounded-lg border-2 border-primary-400 py-3 pl-4 pr-1
+                font-black text-tertiary-700 min-[400px]:pl-4 md:text-2xl lg:text-lg xl:pl-4 xl:text-2xl 2xl:pl-5 2xl:text-4xl">Z
               <sup class="align-top text-xs"><sup class="align-middle font-black xl:align-super"> 30</sup></sup></span>
             INC'S ESSENTIALS
           </h1>
@@ -1347,12 +642,12 @@
   <!--   end V2 featured section -->
 
   <!-- start footer -->
-  <footer class="mt-12 pb-8 bg-primary-400 text-tertiary-700">
+  <footer class="mt-12 bg-primary-400 pb-8 text-tertiary-700">
 
     <div class="mx-10 lg:mx-20 xl:mx-32">
       <div class="flex max-[425px]:place-content-center">
         <div class="max-w-72 flex ">
-          <div class="bg-white rounded-b-lg p-4 grid">
+          <div class="grid rounded-b-lg bg-white p-4">
             <img class="justify-self-center" src="../images/kalium_small.jpg" alt="">
           </div>
         </div>
@@ -1413,7 +708,7 @@
 
       </div>
 
-      <div class="flex flex-col items-center justify-center mt-4 lg:mt-0">
+      <div class="mt-4 flex flex-col items-center justify-center lg:mt-0">
         <p>&copy; Kalium Drugstore 2024</p>
       </div>
 

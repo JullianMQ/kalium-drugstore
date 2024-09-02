@@ -3,7 +3,7 @@
 export default {
     content: [
         './src/**/*.{html,js}',
-        './public/**/*.html',
+        './public/**/*.{html, js}',
     ],
     theme: {
         extend: {
@@ -98,10 +98,9 @@ export default {
             },
             keyframes: {
                 'fade-in-right': {
-                    "100%": { opacity: 0, transform: "translateX(-20px)" },
-                    "50%": { opacity: 0.5, transform: "translateX(20px)" },
-                    "0%": { opacity: 1, transform: "translateX(0px)" },
-            },
+                    "100%": { opacity: 1, transform: "translateX(200px)" },
+                    "50%": { opacity: 0.5, transform: "translateX(100px)" },
+                    "0%": { opacity: 0, transform: "translateX(0px)" }, },
             },
             animation: {
                 // add something here
