@@ -172,6 +172,14 @@ $("button").on("click", function () {
 
 });
 
+// TODO: Continue this tomorrow
+$("button").on("click", function() {
+    const delId = $(this).attr("id");
+    if (delId.startsWith("del")) {
+
+    }
+});
+
 // $("#cart-dropdown").addClass("hidden");
 
 // $("#shopping-cart").on("hover", () => {
@@ -182,11 +190,9 @@ $("#shopping-cart").on("click", () => {
     $("#cart-dropdown").toggleClass("hidden");
 });
 
-
 $("#search-btn").on("click", () => {
-    $("#search-input").toggleClass("hidden");
-    $("#nav-links").toggleClass("hidden");
-    $("#hero-section").toggleClass("hidden");
+    $('#search-input').prop('disabled', (elements, value) => !value);
+    $("#hero-section").slideToggle(500);
 });
 
 
