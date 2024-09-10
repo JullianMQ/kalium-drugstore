@@ -25,6 +25,7 @@
       </div>
 
       <!-- TODO: finish search bar -->
+      <!-- ADD COMPATIBILITY TO SMALLER SCREEN SIZE -->
       <div id="navbar" class="relative xl:flex xl:items-center xl:justify-around">
         <div id="nav-links" class="">
           <ul class="hidden xl:flex xl:flex-1 xl:gap-8">
@@ -44,7 +45,7 @@
         </div>
 
         <div id="search-bar" class="grid grid-cols-2 mx-14 items-center justify-center mt-2 md:mt-6 
-            xl:mt-0 xl:mb-2 gap-6 md:justify-end peer">
+            xl:mt-0 xl:mb-2 gap-6 md:justify-end ">
           <button id="search-btn" class="text-xl hover:text-secondary-700 md:text-3xl" type="">
             <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 
                 hover:text-secondary-700 md:text-2xl"></i>
@@ -53,8 +54,12 @@
 
         <!-- this will overlap with the nav when search is active -->
         <input id="search-input" type="text" disabled
-          class="py-2 px-2 border absolute disabled:opacity-0 transition-all duration-500 ease-in-out 
-            disabled:translate-x-40 disabled:w-0 -translate-x-20 w-[22rem] border-primary rounded-sm 
+          class="z-10 py-2 px-2 border absolute disabled:opacity-50 transition-all duration-500 ease-in-out 
+            disabled:w-0 disabled:h-0 
+            disabled:-translate-y-2 translate-y-6 right-8
+
+            xl:disabled:translate-x-40 xl:translate-y-0
+            xl:-translate-x-20 xl:w-[22rem] border-primary rounded-sm 
             focus:border-2 focus-visible:outline-none ">
 
       </div>
