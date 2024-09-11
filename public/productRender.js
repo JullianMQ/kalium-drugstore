@@ -31,28 +31,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Create a product card dynamically
         const productCard = `
-          <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
-          ${product.image ? `<img src="${product.image}" alt="${product.name}" class="w-full h-auto"/>` : ''}  
-          <h2 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">${product.name}</h2>            
-            <p>Price: ${product.price}</p>
-            <p>Quantity: ${product.quantity}</p>
-            <button class="bg-secondary-500 text-tertiary-800 p-2 rounded">Add to Cart</button>
-          </div>
-        `;
+  <div class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500 md:snap-end">
+    <div class="card-top">
+      <img class="w-full h-auto" src="${product.image || 'default-image.jpg'}" alt="${product.name}" />
+    </div>
+    <div class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
+      <h2 class="md:text-md text-center text-sm text-tertiary-100">${product.name}</h2>
+      <p class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span>${product.price}</span></p>
+      <p class="md:text-md py-2 text-center text-sm text-tertiary-200">Quantity: <span>${product.quantity}</span></p>
+      <div class="flex justify-center">
+        <button class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
+        hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+`;
 
         // Append the product to the correct category
         switch (product.category) {
           case "Prescription":
-            prescriptionSection.innerHTML += productCard;
+            prescriptionSection.insertAdjacentHTML('beforeend', productCard);
             break;
           case "Featured Product":
-            featuredSection.innerHTML += productCard;
+            featuredSection.insertAdjacentHTML('beforeend', productCard);
             break;
           case "Babies Needs":
-            babiesNeedsSection.innerHTML += productCard;
+            babiesNeedsSection.insertAdjacentHTML('beforeend', productCard);
             break;
           case "Personal Care":
-            personalCareSection.innerHTML += productCard;
+            personalCareSection.insertAdjacentHTML('beforeend', productCard);
             break;
           default:
             console.warn(`Unknown category: ${product.category}`);
