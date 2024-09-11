@@ -192,7 +192,7 @@ $("#shopping-cart").on("click", () => {
 
 $("#search-btn").on("click", () => {
     $('#search-input').prop('disabled', (elements, value) => !value);
-    $("#hero-section").slideToggle(500);
+    $("#hero-section").slideToggle(300);
 });
 
 

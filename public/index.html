@@ -53,9 +53,13 @@
 
         <!-- this will overlap with the nav when search is active -->
         <input id="search-input" type="text" disabled
-          class="py-2 px-2 border absolute disabled:opacity-0 transition-all duration-500 ease-in-out 
-            disabled:translate-x-40 disabled:w-0 -translate-x-20 w-[22rem] border-primary rounded-sm 
-            focus:border-2 focus-visible:outline-none ">
+          class="py-2 px-2 border absolute z-10 disabled:opacity-0 transition-all duration-300 
+            ease-in-out disabled:w-0 disabled:right-40 disabled:-translate-y-16 -translate-x-12 
+            translate-y-4 disabled:md:-translate-y-16 md:-translate-x-12 md:translate-y-4 
+            disabled:xl:right-0 disabled:xl:translate-x-40 disabled:xl:translate-y-0 
+            xl:-translate-x-20 xl:w-[22rem] xl:translate-y-0
+            border-primary rounded-sm focus:border-2 focus-visible:outline-none "
+        >
 
       </div>
 
@@ -72,7 +76,7 @@
             <div class="flex flex-col items-center justify-center">
               <p class="text-nowrap text-lg font-bold">CART ITEMS</p>
               <ul id="cart-items" class="flex w-72 flex-col gap-2 text-xs text-gray-700">
-                  <li></li>
+
               </ul>
               <hr class="my-2 w-72 border border-secondary-500">
               <div class="flex w-72 justify-between">
@@ -116,9 +120,9 @@
 
     <div class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
         md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
+
       <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
           md:snap-end">
-
         <div id="" class="card-top">
           <img id="prod-item-1-img" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg"
             alt="" />
