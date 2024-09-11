@@ -1,3 +1,4 @@
+
 const path = "./../images/";
 const image_array = ["pharmacist.jpg", "pharmacist_showing.jpg", "health_drugs.jpg"];
 
@@ -12,7 +13,8 @@ const updateImage = () => {
         index = (index + 1) % image_array.length;
     }, 500);
 };
-
+// Function to render products on the page
+  
 const startCarousel = () => {
     updateImage();
     setInterval(updateImage, 3000);
