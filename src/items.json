@@ -1,0 +1,50 @@
+{
+  "prescription": [
+    {"name": "CARDIX BetaBlocker 50mg Tab", "price": 150.00, "quantity": 30, "image": "../images/drugs/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg"},
+    {"name": "ZYLORIC Allopurinol 100mg Tab", "price": 120.00, "quantity": 28, "image": "../images/drugs/Zyrolic-100mg-Tablet.jpg"},
+    {"name": "FENOFIBE Fenofibrate 200mg Cap", "price": 180.00, "quantity": 20, "image": "../images/drugs/fenofibrate.webp"},
+    {"name": "CLOPIDOGREL Plavix 75mg Tab", "price": 200.00, "quantity": 30, "image": "../images/drugs/plavix-clopidogrel-75-mg-tablets-500x500.webp"},
+    {"name": "LORZAPINE Lorazepam 1mg Tab", "price": 90.00, "quantity": 60, "image": "../images/drugs/lorcam-1-Lorazepam-1mg.jpg"},
+    {"name": "HYPOTENSIN Amlodipine 10mg Tab", "price": 140.00, "quantity": 30, "image": "../images/drugs/betablock-xl-50-tablet-500x500.webp"},
+    {"name": "OMEZOL Omezaprole 20mg Cap", "price": 100.00, "quantity": 15, "image": "../images/drugs/omeprazole.jpg"},
+    {"name": "LIPIDEX Atorvastatin 40mg Tab", "price": 160.00, "quantity": 30, "image": "../images/drugs/lipidex.jpg"},
+    {"name": "METFORMEX Metformin 500mg Tab", "price": 130.00, "quantity": 60, "image": "../images/drugs/metformin.png"},
+    {"name": "PROGEL Prednisolone 5mg Tab", "price": 110.00, "quantity": 20, "image": "../images/drugs/Prednisone-10MG.webp"}
+  ],
+  "featured": [
+    {"name": "VITA-BOOST Multivitamins 30 Tabs", "price": 200.00, "quantity": 30},
+    {"name": "PAIN-X Ibuprofen 400mg Tab", "price": 75.00, "quantity": 50},
+    {"name": "DERMABALM Moisturizing Cream 50g", "price": 90.00, "quantity": 25},
+    {"name": "ALLERNOX Cetirizine 10mg Tab", "price": 95.00, "quantity": 20},
+    {"name": "COUGH-EASE Dextromethorphan 10mg/5ml Syr", "price": 130.00, "quantity": 100},
+    {"name": "SOMNEX Melatonin 5mg Tab", "price": 85.00, "quantity": 20},
+    {"name": "SENPURE Senna Extract 8mg Tab", "price": 70.00, "quantity": 30},
+    {"name": "CALCIUMPLUS Calcium + Vitamin D 600mg/400IU Tab", "price": 140.00, "quantity": 30},
+    {"name": "LAXOFAST Psyllium Husk 7g Powder", "price": 120.00, "quantity": 200},
+    {"name": "ANTIALLERGY Loratadine 10mg Tab", "price": 90.00, "quantity": 20}
+  ],
+  "babies": [
+    {"name": "BABYCARE Gentle Baby Shampoo 200ml", "price": 100.00, "quantity": 20},
+    {"name": "LITTLEFEET Baby Diapers Size M 30pcs", "price": 250.00, "quantity": 10},
+    {"name": "SLEEPYTIME Baby Sleep Aid Drops 15ml", "price": 120.00, "quantity": 15},
+    {"name": "BABYVIT Multivitamins for Infants 30ml", "price": 150.00, "quantity": 25},
+    {"name": "DIAPER RASH CREAM Zinc Oxide 50g", "price": 90.00, "quantity": 30},
+    {"name": "GENTLE BABY WIPES 100pcs Pack", "price": 80.00, "quantity": 40},
+    {"name": "HAPPYFEET Baby Lotion 150ml", "price": 110.00, "quantity": 25},
+    {"name": "COLIC RELIEF Gas Drops 30ml", "price": 140.00, "quantity": 20},
+    {"name": "BABYFORMULA Nutritional Powder 400g", "price": 450.00, "quantity": 15},
+    {"name": "SOOTHING GEL Baby Teething Gel 20g", "price": 130.00, "quantity": 25}
+  ],
+  "personal": [
+    {"name": "GLOWING SKIN Vitamin C Serum 30ml", "price": 180.00, "quantity": 20},
+    {"name": "FRESHMINT Toothpaste 100g", "price": 60.00, "quantity": 50},
+    {"name": "SOFTFEEL Body Lotion 250ml", "price": 120.00, "quantity": 30},
+    {"name": "MENSCARE Shaving Cream 150ml", "price": 90.00, "quantity": 25},
+    {"name": "EYESHIELD Anti-Aging Eye Cream 15ml", "price": 200.00, "quantity": 15},
+    {"name": "MOISTUREX Hand Cream 100ml", "price": 70.00, "quantity": 40},
+    {"name": "SILKYHAIR Shampoo 250ml", "price": 110.00, "quantity": 25},
+    {"name": "NATURALBODY Deodorant Spray 150ml", "price": 85.00, "quantity": 30},
+    {"name": "SKINCARE Toner 200ml", "price": 150.00, "quantity": 20},
+    {"name": "HERBALSOAP Anti-Bacterial Soap 100g", "price": 50.00, "quantity": 50}
+  ]
+}

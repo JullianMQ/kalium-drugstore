@@ -24,7 +24,6 @@
         <a href="index.html"><img src="./../images/kalium_trans_small.png" alt="" class="w-24 md:w-48" /></a>
       </div>
 
-      <!-- TODO: finish search bar -->
       <div id="navbar" class="relative xl:flex xl:items-center xl:justify-around">
         <div id="nav-links" class="">
           <ul class="hidden xl:flex xl:flex-1 xl:gap-8">
@@ -43,7 +42,7 @@
           </ul>
         </div>
 
-        <div id="search-bar" class="grid grid-cols-2 mx-14 items-center justify-center mt-2 md:mt-6 
+        <div id="search-bar" class="grid mx-14 items-center justify-center mt-2 md:mt-6 
             xl:mt-0 xl:mb-2 gap-6 md:justify-end peer">
           <button id="search-btn" class="text-xl hover:text-secondary-700 md:text-3xl" type="">
             <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 
@@ -51,15 +50,23 @@
           </button>
         </div>
 
-        <!-- this will overlap with the nav when search is active -->
-        <input id="search-input" type="text" disabled
-          class="py-2 px-2 border absolute z-10 disabled:opacity-0 transition-all duration-300 
-            ease-in-out disabled:w-0 disabled:right-40 disabled:-translate-y-16 -translate-x-12 
-            translate-y-4 disabled:md:-translate-y-16 md:-translate-x-12 md:translate-y-4 
-            disabled:xl:right-0 disabled:xl:translate-x-40 disabled:xl:translate-y-0 
+        <input id="search-input" type="text" disabled class="py-2 px-2 border 
+            absolute z-10 disabled:opacity-0 transition-all duration-300 ease-in-out disabled:w-0 
+            disabled:translate-x-20 translate-x-2 -translate-y-9 w-28 
+            disabled:md:-translate-y-10 disabled:md:translate-x-20 md:-translate-x-12 md:-translate-y-10 md:w-56 
+            disabled:lg:translate-x-44 disabled:lg:translate-y-0 
             xl:-translate-x-20 xl:w-[22rem] xl:translate-y-0
-            border-primary rounded-sm focus:border-2 focus-visible:outline-none "
-        >
+            border-primary rounded-sm focus:border-2 focus-visible:outline-none ">
+
+        <button id="close-search" type="button" class="hidden absolute bottom-3 z-20 left-[5.7rem] stroke-red-500 active:scale-90 
+            translate-x-2
+            md:-translate-y-6 md:translate-x-16 xl:hidden
+            ">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+
+        </button>
 
       </div>
 
@@ -71,8 +78,9 @@
           <a id="shopping-cart" class="peer" href="#"><i
               class="peer active:scale-110 fa-solid fa-bag-shopping mb-1 text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl "></i>
           </a>
-          <div id="cart-dropdown"
-            class="hidden hover:block transition-all duration-1000 absolute right-2 top-8 z-10 w-80 rounded shadow-sm shadow-tertiary-400 border border-tertiary-700 bg-tertiary-600 p-2 pt-4 pb-6 peer-hover:block">
+          <div id="cart-dropdown" class="hidden hover:block transition-all duration-1000 absolute right-2 top-8 z-10 w-80 
+              rounded shadow-sm shadow-tertiary-400 border border-tertiary-700 bg-tertiary-600 
+              p-2 pt-4 pb-6 peer-hover:block">
             <div class="flex flex-col items-center justify-center">
               <p class="text-nowrap text-lg font-bold">CART ITEMS</p>
               <ul id="cart-items" class="flex w-72 flex-col gap-2 text-xs text-gray-700">
@@ -114,453 +122,77 @@
 
   <!-- products section -->
   <main id="products" class="xl:mt-12">
-    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+
+    <div
+      class="headers my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Prescription</h1>
     </div>
 
-    <div class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+    <div data-container-prescription class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
         md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
 
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-        <div id="" class="card-top">
-          <img id="prod-item-1-img" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg"
-            alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
+      <template data-product-container>
 
-          <h2 id="prod-item-1" class="md:text-md text-center text-sm text-tertiary-100">
-            Rx: VYMADA Sacubtril + Valsartan FC Tab 200mg
-          </h2>
+        <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
+          mb-4 md:snap-end">
+          <div id="" class="card-top">
+            <img data-product-img id="" class="" src="" alt="" />
+          </div>
+          <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
 
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-1-price">99.00</span></p>
-          <div class="flex justify-center">
+            <h2 data-product-name id="" class="md:text-md text-center text-sm text-tertiary-100">
+              <!-- Name here -->
+            </h2>
 
-            <button id="prod-item-1-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
+            <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span data-product-price
+                id=""><!--price here--></span></p>
+            <div class="flex justify-center">
+
+              <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
                 hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
+                Add to Cart
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="prod-item-2-img" class="" src="../images/betablock-xl-50-tablet-500x500.webp" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="prod-item-2" class="md:text-md text-center text-sm text-tertiary-100">
-            CARDIX BetaBlocker 50mg Tab
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-2-price">150.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="prod-item-2-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="prod-item-3-img" class="" src="../images/Zyrolic-100mg-Tablet.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="prod-item-3" class="md:text-md text-center text-sm text-tertiary-100">
-            ZYLORIC Allopurinol 100mg Tab
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-3-price">120.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="prod-item-3-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="prod-item-4-img" class="" src="../images/fenofibrate.webp" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="prod-item-4" class="md:text-md text-center text-sm text-tertiary-100">
-            FENOFIBE Fenofibrate 200mg Cap
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-4-price">180.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="prod-item-4-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="prod-item-5-img" class="" src="../images/plavix-clopidogrel-75-mg-tablets-500x500.webp" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="prod-item-5" class="md:text-md text-center text-sm text-tertiary-100">
-            CLOPIDOGREL Plavix 75mg Tab
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-5-price">200.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="prod-item-5-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="prod-item-6-img" class="" src="../images/lorcam-1-Lorazepam-1mg.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="prod-item-6" class="md:text-md text-center text-sm text-tertiary-100">
-            LORZAPINE Lorazepam 1mg Tab
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span
-              id="prod-item-6-price">20.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="prod-item-6-btn" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-
+      </template>
 
     </div>
 
-    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+    <div
+      class="headers my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Featured Product</h1>
     </div>
 
-
-    <div class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+    <div data-container-featured class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
         md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-      <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          md:snap-end">
-
-        <div id="" class="card-top">
-          <img id="" class="" src="../images/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="" />
-        </div>
-        <div id="" class="card-bot flex flex-col flex-wrap p-6 px-4 shadow-lg shadow-tertiary-500">
-
-          <h2 id="" class="md:text-md text-center text-sm text-tertiary-100">
-            Placeholder Item
-          </h2>
-
-          <p id="" class="md:text-md py-6 text-center text-sm text-tertiary-200 md:py-4">₱ <span id="">99.00</span></p>
-          <div class="flex justify-center">
-
-            <button id="" class="rounded border-2 border-primary-500 bg-primary-500 p-2 px-9 text-tertiary-800 
-                hover:scale-105 hover:bg-primary-600 active:scale-110" type="button">
-              Add to Cart
-            </button>
-
-          </div>
-        </div>
-      </div>
-
 
     </div>
 
-    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+    <div
+      class="headers my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Babies Needs</h1>
     </div>
 
-    <div class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
+    <div data-container-babies class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+        md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
+
+    </div>
+
+    <div
+      class="headers my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-32">
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Personal Care</h1>
+    </div>
+
+    <div data-container-personal class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
+        md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
+
     </div>
 
   </main>
   <!-- end products section -->
 
   <hr id="featured" class="mx-10 my-12 border-2 border-tertiary-500 lg:mx-20 xl:mx-32">
-
-  <!--   V1 featured section -->
-  <!-- <div -->
-  <!--   class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-[10.7rem] "> -->
-  <!--   <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Everything You Need</h1> -->
-  <!-- </div> -->
-
-  <!--   <div class="mx-6 justify-center md:mx-10 lg:mx-44"> -->
-
-  <!--     <!-1- take out the flex values if it looks better with bento layout on mobile -1-> -->
-  <!--     <div class="flex flex-col gap-4 md:grid md:grid-cols-2 md:grid-rows-3 "> -->
-  <!--       <div class="flex place-content-center"> -->
-  <!--         <img class=" rounded-lg " src="/images/project/store_supply_1.png" alt=""> -->
-  <!--       </div> -->
-
-  <!--       <div class="row-span-2 "> -->
-  <!--         <video class="rounded-lg " width="" height="" muted autoplay loop> -->
-  <!--           <source src="/images/project/supply_overview.mp4" type="video/mp4"> -->
-  <!--         </video> -->
-  <!--       </div> -->
-
-  <!--       <div class="flex place-content-center"> -->
-  <!--         <img class=" rounded-lg " src="/images/project/store_supply_2.png" alt=""> -->
-  <!--       </div> -->
-
-  <!--       <div class="flex place-content-center"> -->
-  <!--         <img class=" rounded-lg " src="/images/project/inside_store.png" alt=""> -->
-  <!--       </div> -->
-
-  <!--       <div class="flex place-content-center"> -->
-  <!--         <img class=" rounded-lg " src="/images/project/store_front.png" alt=""> -->
-  <!--       </div> -->
-
-  <!--     </div> -->
-
-  <!--   </div> -->
-
-
-  <!--   <!-1- end upper featured section -1-> -->
-
-  <!--   <!-1- lower featured section -1-> -->
-  <!--   <div -->
-  <!--     class="my-8 border border-tertiary-500 bg-tertiary-600 p-2 shadow-lg shadow-tertiary-500 md:mx-8 lg:mx-[10.7rem] "> -->
-  <!--     <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">You Are Welcome Here</h1> -->
-  <!--   </div> -->
-
-  <!--   <div class="flex justify-center"> -->
-
-  <!--     <div class="grid grid-cols-2 grid-rows-1"> -->
-  <!--       <div class="border border-tertiary-400"> -->
-
-  <!--       </div> -->
-
-  <!--       <div class="border border-tertiary-400"> -->
-
-  <!--       </div> -->
-  <!--     </div> -->
-
-  <!--   </div> -->
-  <!--   end V1 featured section -->
 
   <!--   V2 featured section -->
   <div class="mx-4 flex flex-col justify-center min-[400px]:mx-16 xl:mx-32">
