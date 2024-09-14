@@ -23,30 +23,30 @@ startCarousel();
 // Hero Section
 
 
-// Cart Section
-const itemConstruct = (prodName, prodPrice, prodImage, prodId, cartItemLen) => {
+// Cart Section - FUNCTION THAT RETURNS THE HTML FOR EACH CART ITEM
+const itemConstruct = (prodName, prodPrice, prodImage, prodId) => {
     let htmlItem =
         `
-        <li id="cart-item-${cartItemLen}" class="flex items-center border justify-center gap-2">
-            <img id="cart-item-image-${cartItemLen}" class="max-w-24" src="${prodImage}" alt="">
-            <p id="cart-item-name-${cartItemLen}" class="">${prodName}</p>
+        <li data-cart-item class="flex items-center border justify-center gap-2">
+            <img class="max-w-24" src="${prodImage}" alt="">
+            <p id="prodName" class="">${prodName}</p>
               <div class="flex flex-col gap-2 justify-center items-center">
 
                   <div class="flex border border-primary-400">
-                    <button id="minus-item-${cartItemLen}" class="border-2 px-[.10rem] bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700  active:scale-110">
+                    <button id="minus-item" class="border-2 px-[.10rem] bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700  active:scale-110">
                       <span class="text-tertiary-600 align-text-top font-bold ">
                       -
                       </span>
                     </button>
-                    <input id="qty-item-${cartItemLen}" class="max-w-4 text-center" type="number" name="" value="1" min="1">
-                    <button id="add-item-${cartItemLen}" class="border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110">
+                    <input id="qty-item" class="max-w-4 text-center" type="number" value="1" min="1">
+                    <button id="add-item" class="border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110">
                       <span class="text-tertiary-600 align-text-top font-bold ">
                       +
                       </span>
                     </button>
                   </div>
 
-                <button id="del-item-${cartItemLen}" class="hover:scale-105 active:scale-125 hover:stroke-red-600 stroke-red-700" type="button">
+                <button id="del-item" class="hover:scale-105 active:scale-125 hover:stroke-red-600 stroke-red-700" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="" class="size-4">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,49 +56,9 @@ const itemConstruct = (prodName, prodPrice, prodImage, prodId, cartItemLen) => {
               </div>
 
             </li> 
-        `
+        `;
     return htmlItem;
 }
-
-const updateCartPrice = (itemPrice) => {
-    $("#total-price");
-}
-
-const addToCart = (prodName, prodPrice, prodImage, prodId) => {
-    let cartItemLen = $("#cart-items li").length;
-    cartItemLen++;
-    $("#cart-items").append(itemConstruct(prodName, prodPrice, prodImage, prodId, cartItemLen));
-};
-
-$("button").on("click", function () {
-    const prodId = $(this).attr("id");
-    let id = prodId;
-    id = parseInt(id.replace(/\D/g, ''));
-
-    if (prodId.startsWith("prod")) {
-        const prodName = $(`#prod-item-${id}`).text().trim();
-        const prodPrice = $(`#prod-item-${id}-price`).text().trim();
-        const prodImage = $(`#prod-item-${id}-img`).attr("src").trim();
-        // console.log(parseInt($(this).attr("id")));
-
-        addToCart(prodName, prodPrice, prodImage, id);
-    }
-
-});
-
-// TODO: Continue this tomorrow
-// $("button").on("click", function() {
-//     const delId = $(this).attr("id");
-//     if (delId.startsWith("del")) {
-
-//     }
-// });
-
-$("#shopping-cart").on("click", () => {
-    $("#cart-dropdown").toggleClass("hidden");
-});
-// End Cart Section
-
 
 // Generate Items for Products Section
 const container_prescription = $("[data-container-prescription]");
@@ -108,7 +68,6 @@ const container_personal = $("[data-container-personal]");
 
 const cardTemplate = $("[data-product-container]");
 let products = [];
-// console.log(cardTemplate[0].content);
 
 fetch('../src/items.json')
     .then(res => res.json())
@@ -125,24 +84,129 @@ fetch('../src/items.json')
                 let name = card.querySelector("[data-product-name]");
                 let image = card.querySelector("[data-product-img]");
                 let price = card.querySelector("[data-product-price]");
+                let button = card.querySelector("[data-add-to-cart]")
 
                 name.textContent = items[i].name;
-                image.src=`${items[i].image}`;
+                image.src = `${items[i].image}`;
                 price.textContent = items[i].price;
 
                 container.append(card);
-                products.push({name: items[i].name, element: card});
+
+                products.push({
+                    name: items[i].name,
+                    image: items[i].image,
+                    price: items[i].price,
+                    element: card,
+                    button: button
+                });
             }
         };
 
-        processItems(prescription, container_prescription); 
+        processItems(prescription, container_prescription);
         // processItems(featured, container_featured);         
         // processItems(babies, container_babies);             
         // processItems(personal, container_personal);         
+        addButtonListeners();
     })
     .catch(error => console.error("Error loading JSON:", error));
 
-// End Products Section
+const cartItems = [];
+const addButtonListeners = () => {
+    for (let i = 0; i < products.length; i++) {
+        let button = products[i].button;
+        button.addEventListener("click", () => {
+            addToCart(products[i]);
+        });
+    }
+}
+
+// GPT START
+const addToCart = (product) => {
+    const existingItem = cartItems.find(item => item.name === product.name);
+
+    if (existingItem) {
+        const qtyInput = $(existingItem.element).find("#qty-item");
+        qtyInput.val(parseInt(qtyInput.val()) + 1);
+        updateCartTotal(); // UPDATE TOTAL AFTER INCREMENTING QUANTITY
+    } else {
+        const cartContainer = $("[data-cart-container]");
+
+        let itemToPush = $(itemConstruct(product.name, product.price, product.image));
+        cartContainer.append(itemToPush);
+
+        product.element = itemToPush;
+        product.qty = itemToPush.find("#qty-item"); // STORE REFERENCE TO QUANTITY INPUT FIELD
+
+        product.add = itemToPush.find("#add-item");
+        product.minus = itemToPush.find("#minus-item");
+        product.del = itemToPush.find("#del-item");
+
+        cartItems.push(product);
+
+        product.add.on("click", () => {
+            const qtyInput = itemToPush.find("#qty-item");
+            qtyInput.val(parseInt(qtyInput.val()) + 1);
+            updateCartTotal(); // UPDATE TOTAL AFTER INCREMENTING QUANTITY
+        });
+
+        product.minus.on("click", () => {
+            const qtyInput = itemToPush.find("#qty-item");
+            if (parseInt(qtyInput.val()) > 1) {
+                qtyInput.val(parseInt(qtyInput.val()) - 1);
+                updateCartTotal(); // UPDATE TOTAL AFTER DECREMENTING QUANTITY
+            }
+        });
+
+        product.del.on("click", () => {
+            removeFromCart(product); // REMOVE ITEM FROM CART AND UPDATE TOTAL
+        });
+
+        updateCartTotal(); // UPDATE TOTAL AFTER ADDING NEW ITEM
+    }
+
+    console.log(cartItems);
+};
+
+const updateQuantity = (cartItem, increment) => {
+    let qtyInput = cartItem.find('#qty-item');
+    let currentQty = parseInt(qtyInput.val());
+
+    let newQty = currentQty + increment;
+    if (newQty >= 1) {
+        qtyInput.val(newQty);
+        updateCartTotal(); // UPDATE TOTAL AFTER CHANGING QUANTITY
+    }
+};
+
+const removeFromCart = (product) => {
+    const itemIndex = cartItems.indexOf(product);
+    
+    if (itemIndex !== -1) {
+        cartItems.splice(itemIndex, 1); // REMOVE ITEM FROM cartItems ARRAY
+        $(product.element).remove(); // REMOVE FROM DOM
+        updateCartTotal(); // UPDATE TOTAL AFTER REMOVAL
+    }
+};
+
+const updateCartTotal = () => {
+    let total = 0;
+
+    cartItems.forEach(item => {
+        const qty = parseInt(item.qty.val()); // USE item.qty AS JQUERY OBJECT
+        const price = parseFloat(item.price); // PRICE IS STORED AS STRING IN item OBJECT
+        total += qty * price;
+    });
+
+    // UPDATE TOTAL PRICE IN THE DOM
+    $("[data-cart-total]").text(`₱ ${total.toFixed(2)}`);
+};
+
+$("#shopping-cart").on("click", () => {
+    $("#cart-dropdown").toggleClass("hidden");
+});
+// GPT END
+// End Cart Section
+
 
 
 // Search Section
@@ -164,7 +228,6 @@ $("#close-search").on("click", () => {
 $("#search-input").on("input", queryInput => {
     let query = queryInput.target.value.toLowerCase();
     products.forEach(product => {
-        console.log(product);
         const isVisible = product.name.toLowerCase().includes(query);
         product.element.classList.toggle("hidden", !isVisible);
     })
