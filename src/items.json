@@ -6,7 +6,7 @@
     {"name": "CLOPIDOGREL Plavix 75mg Tab", "price": 200.00, "quantity": 30, "image": "../images/drugs/plavix-clopidogrel-75-mg-tablets-500x500.webp"},
     {"name": "LORZAPINE Lorazepam 1mg Tab", "price": 90.00, "quantity": 60, "image": "../images/drugs/lorcam-1-Lorazepam-1mg.jpg"},
     {"name": "HYPOTENSIN Amlodipine 10mg Tab", "price": 140.00, "quantity": 30, "image": "../images/drugs/betablock-xl-50-tablet-500x500.webp"},
-    {"name": "OMEZOL Omezaprole 20mg Cap", "price": 100.00, "quantity": 15, "image": "../images/drugs/omeprazole.jpg"},
+    {"name": "OMEZOL Omeprazole 20mg Cap", "price": 100.00, "quantity": 15, "image": "../images/drugs/omeprazole.jpg"},
     {"name": "LIPIDEX Atorvastatin 40mg Tab", "price": 160.00, "quantity": 30, "image": "../images/drugs/lipidex.jpg"},
     {"name": "METFORMEX Metformin 500mg Tab", "price": 130.00, "quantity": 60, "image": "../images/drugs/metformin.png"},
     {"name": "PROGEL Prednisolone 5mg Tab", "price": 110.00, "quantity": 20, "image": "../images/drugs/Prednisone-10MG.webp"}
