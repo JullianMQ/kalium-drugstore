@@ -127,7 +127,7 @@ const addToCart = (product) => {
     if (existingItem) {
         const qtyInput = $(existingItem.element).find("#qty-item");
         qtyInput.val(parseInt(qtyInput.val()) + 1);
-        updateCartTotal(); // UPDATE TOTAL AFTER INCREMENTING QUANTITY
+        updateCartTotal(); 
     } else {
         const cartContainer = $("[data-cart-container]");
 
@@ -135,7 +135,7 @@ const addToCart = (product) => {
         cartContainer.append(itemToPush);
 
         product.element = itemToPush;
-        product.qty = itemToPush.find("#qty-item"); // STORE REFERENCE TO QUANTITY INPUT FIELD
+        product.qty = itemToPush.find("#qty-item"); 
 
         product.add = itemToPush.find("#add-item");
         product.minus = itemToPush.find("#minus-item");
@@ -146,22 +146,22 @@ const addToCart = (product) => {
         product.add.on("click", () => {
             const qtyInput = itemToPush.find("#qty-item");
             qtyInput.val(parseInt(qtyInput.val()) + 1);
-            updateCartTotal(); // UPDATE TOTAL AFTER INCREMENTING QUANTITY
+            updateCartTotal(); 
         });
 
         product.minus.on("click", () => {
             const qtyInput = itemToPush.find("#qty-item");
             if (parseInt(qtyInput.val()) > 1) {
                 qtyInput.val(parseInt(qtyInput.val()) - 1);
-                updateCartTotal(); // UPDATE TOTAL AFTER DECREMENTING QUANTITY
+                updateCartTotal(); 
             }
         });
 
         product.del.on("click", () => {
-            removeFromCart(product); // REMOVE ITEM FROM CART AND UPDATE TOTAL
+            removeFromCart(product); 
         });
 
-        updateCartTotal(); // UPDATE TOTAL AFTER ADDING NEW ITEM
+        updateCartTotal(); 
     }
 
     console.log(cartItems);
@@ -174,7 +174,7 @@ const updateQuantity = (cartItem, increment) => {
     let newQty = currentQty + increment;
     if (newQty >= 1) {
         qtyInput.val(newQty);
-        updateCartTotal(); // UPDATE TOTAL AFTER CHANGING QUANTITY
+        updateCartTotal(); 
     }
 };
 
@@ -182,9 +182,9 @@ const removeFromCart = (product) => {
     const itemIndex = cartItems.indexOf(product);
     
     if (itemIndex !== -1) {
-        cartItems.splice(itemIndex, 1); // REMOVE ITEM FROM cartItems ARRAY
-        $(product.element).remove(); // REMOVE FROM DOM
-        updateCartTotal(); // UPDATE TOTAL AFTER REMOVAL
+        cartItems.splice(itemIndex, 1); 
+        $(product.element).remove(); 
+        updateCartTotal(); 
     }
 };
 
@@ -192,12 +192,12 @@ const updateCartTotal = () => {
     let total = 0;
 
     cartItems.forEach(item => {
-        const qty = parseInt(item.qty.val()); // USE item.qty AS JQUERY OBJECT
-        const price = parseFloat(item.price); // PRICE IS STORED AS STRING IN item OBJECT
+        const qty = parseInt(item.qty.val()); 
+        const price = parseFloat(item.price); 
         total += qty * price;
     });
 
-    // UPDATE TOTAL PRICE IN THE DOM
+    
     $("[data-cart-total]").text(`₱ ${total.toFixed(2)}`);
 };
 

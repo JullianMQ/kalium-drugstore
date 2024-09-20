@@ -1,22 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 
 export default {
-    purge: {
-        content: ['./src/**/*.{html,js}', "./public/**/*.{html, js}"],
-        safelist: [
-            'max-w-24',
-            "flex items-center border justify-center gap-2",
-            "flex flex-col gap-2 justify-center items-center",
-            "flex border border-primary-400",
-            "border-2 px-[.10rem] bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700  active:scale-110",
-            "text-tertiary-600 align-text-top font-bold ",
-            "max-w-4 text-center",
-            "border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110",
-            "text-tertiary-600 align-text-top font-bold ",
-            "hover:scale-105 active:scale-125 hover:stroke-red-600 stroke-red-700",
-            "size-4"
-        ],
-    },
+    // purge: {
+    //     content: ['./src/**/*.{html,js}', "./public/**/*.{html, js}"],
+    //     safelist: [
+    //         'max-w-24',
+    //         "flex items-center border justify-center gap-2",
+    //         "flex flex-col gap-2 justify-center items-center",
+    //         "flex border border-primary-400",
+    //         "border-2 px-[.10rem] bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700  active:scale-110",
+    //         "text-tertiary-600 align-text-top font-bold ",
+    //         "max-w-4 text-center",
+    //         "border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110",
+    //         "text-tertiary-600 align-text-top font-bold ",
+    //         "hover:scale-105 active:scale-125 hover:stroke-red-600 stroke-red-700",
+    //         "size-4"
+    //     ],
+    // },
     content: [
         './src/**/*.{html,js}',
         './public/**/*.{html, js}',

@@ -21,7 +21,8 @@
   <nav id="home" class="border-b border-tertiary-600 bg-tertiary-800 shadow-md shadow-tertiary-500">
     <div class="flex flex-1 justify-around -space-x-4 p-3">
       <div id="logo" class="">
-        <a href="index.html"><img src="./../images/kalium_trans_small.png" alt="" class="w-24 md:w-48" /></a>
+        <a href="index.html"><img src="./../images/SmallKaliumNewLogo-removebg-preview.png" alt=""
+            class="w-24 md:w-48" /></a>
       </div>
 
       <div id="navbar" class="relative xl:flex xl:items-center xl:justify-around">
@@ -42,24 +43,24 @@
           </ul>
         </div>
 
-        <div id="search-bar" class="grid mx-14 items-center justify-center mt-2 md:mt-6 
-            xl:mt-0 xl:mb-2 gap-6 md:justify-end peer">
+        <div id="search-bar" class="peer mx-14 mt-2 grid items-center justify-center 
+            gap-6 md:mt-6 md:justify-end xl:mb-2 xl:mt-0">
           <button id="search-btn" class="text-xl hover:text-secondary-700 md:text-3xl" type="">
             <i class="fa-solid fa-magnifying-glass text-xl text-secondary-500 
                 hover:text-secondary-700 md:text-2xl"></i>
           </button>
         </div>
 
-        <input id="search-input" type="text" disabled class="py-2 px-2 border 
-            absolute z-10 disabled:opacity-0 transition-all duration-300 ease-in-out disabled:w-0 
-            disabled:translate-x-20 translate-x-2 -translate-y-9 w-28 
-            disabled:md:-translate-y-10 disabled:md:translate-x-20 md:-translate-x-12 md:-translate-y-10 md:w-56 
-            disabled:lg:translate-x-44 disabled:lg:translate-y-0 
-            xl:-translate-x-20 xl:w-[22rem] xl:translate-y-0
-            border-primary rounded-sm focus:border-2 focus-visible:outline-none ">
+        <input id="search-input" type="text" disabled class="absolute z-10 w-28 
+            -translate-y-9 translate-x-2 rounded-sm border border-primary px-2 py-2 
+            transition-all duration-300 ease-in-out focus:border-2 
+            focus-visible:outline-none disabled:w-0 disabled:translate-x-20 disabled:opacity-0 md:w-56 
+            md:-translate-x-12 md:-translate-y-10 
+            disabled:md:-translate-y-10 disabled:md:translate-x-20 disabled:lg:translate-x-44
+            disabled:lg:translate-y-0 xl:w-[22rem] xl:-translate-x-20 xl:translate-y-0 ">
 
-        <button id="close-search" type="button" class="hidden absolute bottom-3 z-20 left-[5.7rem] stroke-red-500 active:scale-90 
-            translate-x-2
+        <button id="close-search" type="button" class="absolute bottom-3 left-[5.7rem] z-20 hidden translate-x-2 stroke-red-500 
+            active:scale-90
             md:-translate-y-6 md:translate-x-16 xl:hidden
             ">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="size-5">
@@ -76,11 +77,11 @@
         <a href="#"><i class="fa-solid fa-user text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl"></i></a>
         <div class="relative">
           <a id="shopping-cart" class="peer" href="#"><i
-              class="peer active:scale-110 fa-solid fa-bag-shopping mb-1 text-xl text-secondary-500 hover:text-secondary-700 md:text-2xl "></i>
+              class="fa-solid fa-bag-shopping peer mb-1 text-xl text-secondary-500 hover:text-secondary-700 active:scale-110 md:text-2xl "></i>
           </a>
-          <div id="cart-dropdown" class="hidden hover:block transition-all duration-1000 absolute right-2 top-8 z-10 w-80 
-              rounded shadow-sm shadow-tertiary-400 border border-tertiary-700 bg-tertiary-600 
-              p-2 pt-4 pb-6 peer-hover:block">
+          <div id="cart-dropdown" class="absolute right-2 top-8 z-10 hidden w-80 rounded border border-tertiary-700 
+              bg-tertiary-600 p-2 pb-6 pt-4 shadow-sm shadow-tertiary-400 
+              transition-all duration-1000 hover:block peer-hover:block">
             <div class="flex flex-col items-center justify-center">
               <p class="text-nowrap text-lg font-bold">CART ITEMS</p>
 
@@ -92,7 +93,7 @@
                 <p class="text-xs"> Total Cost </p>
                 <p id="cart-total-cost" class="text-xs"><span data-cart-total>0.00</span></p>
               </div>
-              <button class="mt-4 px-24 rounded border-2 border-secondary-500 bg-secondary-500 p-1 text-tertiary-800 
+              <button class="mt-4 rounded border-2 border-secondary-500 bg-secondary-500 p-1 px-24 text-tertiary-800 
                 hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">
                 Checkout
               </button>
@@ -134,8 +135,8 @@
 
       <template data-product-container>
 
-        <div id="" class="card min-w-56 max-w-56 snap-center rounded border-2 border-tertiary-500
-          mb-4 md:snap-end">
+        <div id="" class="card min-w-56 max-w-56 mb-4 snap-center rounded border-2
+          border-tertiary-500 md:snap-end">
           <div id="" class="card-top">
             <img data-product-img id="" class="" src="" alt="" />
           </div>
@@ -165,6 +166,16 @@
       <h1 class="text-2xl font-semibold text-secondary-500 md:pl-4 xl:text-3xl">Featured Product</h1>
     </div>
 
+    <!-- Kalium Logo -->
+    <!-- <h1 class="ml-8 bg-secondary-500 bg-clip-text font-semibold text-transparent"> -->
+    <!--   <span -->
+    <!--     class="logo-gradient rounded-lg border-4 border-primary-400 py-2 px-4 -->
+    <!--       font-black text-tertiary-700 2xl:pl-5 2xl:text-8xl">K<sup class="align-top text-sm"><sup class="align-middle font-black xl:align-super"> -->
+    <!--         &nbsp;19</sup></sup></span> -->
+
+    <!--   <span class="min-[400px]:text-xs xl:text-sm 2xl:text-lg"></span> -->
+    <!-- </h1> -->
+
     <div data-container-featured class="flex flex-1 flex-shrink-0 snap-x justify-start gap-4 overflow-x-auto scroll-smooth px-32 max-[320px]:px-20 
         md:mx-8 md:gap-2 md:pl-0 lg:mx-32 xl:mx-32 xl:gap-2 2xl:gap-4">
 
@@ -193,10 +204,25 @@
   </main>
   <!-- end products section -->
 
-  <hr id="featured" class="mx-10 my-12 border-2 border-tertiary-500 lg:mx-20 xl:mx-32">
+  <hr id="" class="mx-10 my-12 border-2 border-tertiary-500 bg-tertiary-500 lg:mx-20 xl:mx-32">
+
+  <div class="mx-4 mb-4 hidden flex-col justify-center min-[400px]:mx-16 lg:block xl:mx-32">
+    <img class="rounded" src="../images/Kalium2.png" alt="Kalium Infographic">
+  </div>
+
+  <div class="hidden mx-8 mb-4 md:flex flex-col justify-center align-center gap-4 lg:hidden">
+    <img class="rounded" src="../images/KaliumInfographicsTab/1.png" alt="Kalium Infographic">
+    <img class="rounded" src="../images/KaliumInfographicsTab/2.png" alt="Kalium Infographic">
+  </div>
+
+    <div class="mx-8 mb-4 flex flex-col justify-center align-center gap-4 md:hidden">
+      <img class="rounded" src="../images/KaliumInfographics_Phone/1.png" alt="">
+      <img class="rounded" src="../images/KaliumInfographics_Phone/2.png" alt="">
+      <img class="rounded" src="../images/KaliumInfographics_Phone/3.png" alt="">
+    </div>
 
   <!--   V2 featured section -->
-  <div class="mx-4 flex flex-col justify-center min-[400px]:mx-16 xl:mx-32">
+  <div class="mx-4 flex flex-col justify-center min-[400px]:mx-8 xl:mx-32">
     <div class="*:rounded-lg flex grid-rows-3 flex-col justify-center gap-4 lg:grid lg:grid-cols-4">
 
       <div class="row-span-2 ">
@@ -283,6 +309,48 @@
   </div>
   <!--   end V2 featured section -->
 
+  <hr id="" class="mx-10 my-12 border-2 border-tertiary-500 bg-tertiary-500 lg:mx-20 xl:mx-32">
+
+
+  <!-- Start Contacts Section -->
+  <div class="grid grid-cols-1 rounded-lg border bg-primary-500 pb-6 pt-2 shadow-lg
+      shadow-tertiary-500 mx-8 md:mx-8 lg:mx-20 lg:grid-cols-2 xl:h-[32rem] 2xl:mx-32">
+
+    <div class="grid md:ml-16 md:place-content-center 2xl:ml-80">
+      <h1 class="mx-4 text-2xl font-semibold text-tertiary-800 xl:mx-0 xl:text-3xl">Contact Us</h1>
+
+      <form class="border-right mx-4 mt-4 grid grid-cols-1 gap-4 xl:mx-0">
+        <div class="grid grid-cols-1">
+          <label class="text-lg font-bold text-tertiary-800" for="user_name">Your Name</label>
+          <input class="rounded pl-2 xl:w-96" type="text" name="user_name" value="" placeholder="Enteng Kabisote">
+        </div>
+
+        <div class="grid grid-cols-1">
+          <label class="text-lg font-bold text-tertiary-800" for="user_email">Your Email</label>
+          <input class="rounded pl-2 xl:w-96" type="" name="user_email" value="" placeholder="GMA@example.com">
+        </div>
+
+        <div class="max-w-96 grid grid-cols-1">
+          <label class="text-lg font-bold text-tertiary-800" for="user_email">Your Message</label>
+          <textarea class="rounded" rows="3" cols="60"></textarea>
+        </div>
+        <button class="mt-4 rounded border-2 border-secondary-500 bg-secondary-500 p-1 px-24 text-tertiary-800 
+                hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">Submit</button>
+      </form>
+    </div>
+
+    <div class="relative hidden lg:block">
+      <img
+        class="absolute rounded-lg lg:right-16 lg:translate-y-10 xl:right-28 xl:top-6 2xl:right-72 2xl:top-0 2xl:w-[45rem] 2xl:-translate-y-2"
+        src="../images/portrait-beautiful-young-asian-woman-with-call-center-customer-care-service-center-yellow-color-wall-removebg.png"
+        alt="">
+    </div>
+
+  </div>
+  <!-- End Contacts Section -->
+
+  <hr id="" class="mx-10 my-12 border-2 border-tertiary-500 bg-tertiary-500 lg:mx-20 xl:mx-32">
+
   <!-- start footer -->
   <footer class="mt-12 bg-primary-400 pb-8 text-tertiary-700">
 
@@ -290,7 +358,7 @@
       <div class="flex max-[425px]:place-content-center">
         <div class="max-w-72 flex ">
           <div class="grid rounded-b-lg bg-white p-4">
-            <img class="justify-self-center" src="../images/kalium_small.jpg" alt="">
+            <img class="justify-self-center" src="../images/SmallKaliumNewLogo.png" alt="">
           </div>
         </div>
       </div>
