@@ -54,6 +54,13 @@ $("#complete-checkout").on("click", function () {
     $("#modal-rating").toggleClass("hidden");
 });
 
+
+// For LocalHost
+// $("#back-to-home").on("click", function () {
+//     window.location.replace("/public/");
+// });
+
+// For GitHub
 $("#back-to-home").on("click", function () {
-    window.location.replace("/public/");
+    window.location.replace("/kalium-drugstore/public/");
 });
