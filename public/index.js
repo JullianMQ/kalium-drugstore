@@ -206,10 +206,17 @@ $("#shopping-cart").on("click", () => {
 });
 
 // Checkout Section
+// For GitHub
 $("#checkout").on("click", function () {
     // window.location.href = "/public/checkout.html";
-    window.location.replace("/public/checkout.html");
+    window.location.replace("/kalium-drugstore/public/checkout.html");
 });
+
+// For Localhost
+// $("#checkout").on("click", function () {
+//     // window.location.href = "/public/checkout.html";
+//     window.location.replace("/public/checkout.html");
+// });
 // GPT END
 // End Cart Section
 
