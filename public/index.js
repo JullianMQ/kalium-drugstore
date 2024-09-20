@@ -204,6 +204,12 @@ const updateCartTotal = () => {
 $("#shopping-cart").on("click", () => {
     $("#cart-dropdown").toggleClass("hidden");
 });
+
+// Checkout Section
+$("#checkout").on("click", function () {
+    // window.location.href = "/public/checkout.html";
+    window.location.replace("/public/checkout.html");
+});
 // GPT END
 // End Cart Section
 

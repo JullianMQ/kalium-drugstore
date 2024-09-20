@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium | Checkout</title>
+  <link href="styles.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <main class="mx-32 my-8">
+    <div class="border-2 border-black rounded-lg relative">
+
+      <div class="grid grid-cols-1 justify-center place-content-center mx-12 my-8">
+          <h1 class=" text-center text-4xl font-bold">YOUR ORDERS</h1>
+
+        <div class="flex justify-around items-center">
+          <img class="w-28" src="../images/drugs/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="">
+          <p class="">CARDIX BetaBlocker 50mg Tab</p>
+          <p class="">₱ 99.00 x 3</p>
+        </div>
+        <div class="flex justify-around items-center">
+          <img class="w-28" src="../images/drugs/fenofibrate.webp" alt="">
+          <p class="">FENOFIBE Fenofibrate 200mg Cap</p>
+          <p class="">₱ 18.00 x 12</p>
+        </div>
+        <div class="flex justify-around items-center">
+          <img class="w-28" src="../images/drugs/lipidex.jpg" alt="">
+          <p class="">LIPIDEX Atorvastatin 40mg Tab</p>
+          <p class="">₱ 42.00 x 8</p>
+        </div>
+
+        <hr class="my-2 border border-tertiary-500">
+
+        <div class="flex mr-48 justify-end items-center">
+          <p class="mr-8">TOTAL:</p>
+          <p class="">₱ 849.00</p>
+        </div>
+
+        <hr class="my-2 border border-tertiary-500">
+
+        <div class="grid place-content-end">
+          <button id="complete-checkout" class="mt-4 rounded w-96 border-2 border-secondary-500 bg-secondary-500 py-4 px-24 text-tertiary-800 
+                hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">Checkout</button>
+        </div>
+
+      </div>
+
+      <div id="modal-rating" class="hidden border-2 border-tertiary-100 rounded-lg absolute top-0 right-0 left-0 bottom-0 m-auto
+          bg-white z-10 w-[70%] h-[70%] grid place-content-center">
+        <div class="grid place-content-center grid-cols-1">
+          <h2 class="text-center align-center">Rate us</h2>
+          <div class="flex gap-8">
+
+            <button class="active:scale-105" data-rate="1">
+              <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve"
+                fill="#000000" transform="rotate(45)matrix(-1, 0, 0, -1, 0, 0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+                  stroke-width="20.48004">
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <path class="pill-fill" 
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+              </svg>
+            </button>
+            <button class="active:scale-105" data-rate="2">
+              <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve"
+                fill="#000000" transform="rotate(45)matrix(-1, 0, 0, -1, 0, 0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+                  stroke-width="20.48004">
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <path class="pill-fill" 
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+              </svg>
+            </button>
+            <button class="active:scale-105" data-rate="3">
+              <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve"
+                fill="#000000" transform="rotate(45)matrix(-1, 0, 0, -1, 0, 0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+                  stroke-width="20.48004">
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <path class="pill-fill" 
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+              </svg>
+            </button>
+            <button class="active:scale-105" data-rate="4">
+              <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve"
+                fill="#000000" transform="rotate(45)matrix(-1, 0, 0, -1, 0, 0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+                  stroke-width="20.48004">
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <path class="pill-fill" 
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+              </svg>
+            </button>
+            <button class="active:scale-105" data-rate="5">
+              <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-25.6 -25.6 563.20 563.20" xml:space="preserve"
+                fill="#000000" transform="rotate(45)matrix(-1, 0, 0, -1, 0, 0)">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#000000"
+                  stroke-width="20.48004">
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path style="fill:#56b5ed;"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path style="fill:#ff623f;"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                  <path class="pill-fill" 
+                    d="M479.587,188.925c43.218-43.221,43.218-113.29,0-156.512l0,0 c-43.221-43.218-113.292-43.218-156.513,0L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512l0,0 c43.219,43.218,113.29,43.218,156.51,0L479.587,188.925z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M479.587,32.414L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l290.663-290.662 C522.805,145.704,522.805,75.635,479.587,32.414z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M177.743,177.745L32.413,323.075c-43.218,43.221-43.216,113.29,0.002,156.512 c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L177.743,177.745z">
+                  </path>
+                  <path class="pill-fill"
+                    d="M255.999,256L32.414,479.587c43.219,43.218,113.29,43.218,156.51,0l145.331-145.331L255.999,256z">
+                  </path>
+                </g>
+              </svg>
+            </button>
+
+          </div>
+          <h2 class="text-center">How was your experience?</h2>
+      <button id="back-to-home" class="mt-4 rounded border-2 border-secondary-500 bg-secondary-500 p-1 px-24 text-tertiary-800
+                hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">Back to Homepage</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="checkout.js"> </script>
+</body>
+
+</html>
