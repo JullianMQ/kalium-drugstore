@@ -103,9 +103,9 @@ fetch('../src/items.json')
         };
 
         processItems(prescription, container_prescription);
-        // processItems(featured, container_featured);         
-        // processItems(babies, container_babies);             
-        // processItems(personal, container_personal);         
+        processItems(featured, container_featured);         
+        processItems(babies, container_babies);             
+        processItems(personal, container_personal);         
         addButtonListeners();
     })
     .catch(error => console.error("Error loading JSON:", error));
@@ -339,8 +339,6 @@ re_passwd.on("input", () => {
     }
 })
 // End SignUp Form
-
-
 
 // $("#open-modal").on("click", () => {
 //     // if ($("#modal").hasClass("hidden") === false) {
