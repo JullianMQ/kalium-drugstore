@@ -6,10 +6,17 @@ luac.out
 *.zip
 *.tar.gz
 
+
+# GIMP FILES
+*.xcf
+*.pdf
+test_dir/*
+
 # Vim related files
 *.vim
 ~/.vim/backup/*.gitignore
 ~/.vim/backup/*
+.ignore
 
 # Ignore node modules
 node_modules/*
