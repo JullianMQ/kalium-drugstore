@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalium | Login</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="md:h-dvh mt-8 flex flex-col place-content-center justify-center gap-8 
+      bg-tertiary-900 md:mt-0 md:flex md:flex-row md:items-center md:gap-4">
+    <form class="flex flex-col gap-y-6 rounded-lg border-2 border-tertiary-500 bg-tertiary-600 p-4 
+        px-8 shadow-lg shadow-tertiary-500 lg:p-12 lg:px-28" action="">
+      <h1 class="text-xl font-semibold lg:text-2xl xl:text-3xl">Login to Account</h1>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="email">Email</label>
+        <input id="form-email" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800" type="text"
+          name="email" value="" required>
+      </div>
+
+      <div class="grid grid-rows-2 ">
+        <label class="" for="passwd">Password</label>
+        <input id="form-passwd" class="rounded border border-tertiary-500 p-1 px-2 hover:border-tertiary-800"
+          type="password" name="passwd" value="" required>
+      </div>
+
+      <div class="flex flex-col">
+        <button id="submit-btn" class="rounded-md border-2 border-secondary-500 bg-secondary-500 py-2 
+            text-tertiary-700 hover:border-secondary-800 hover:bg-secondary-700 active:scale-105
+            disabled:scale-100 disabled:border-tertiary-200 disabled:bg-tertiary-200" type="button">Log In</button>
+        <small class="text-center text-gray-600">Don't have an account? <a class="text-secondary-500 hover:underline"
+            href="signup_page.html">Sign up.</a></small>
+      </div>
+    </form>
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="login.js"></script>
+</body>
+
+</html>

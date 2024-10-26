@@ -67,6 +67,7 @@ const container_babies = $("[data-container-babies]");
 const container_personal = $("[data-container-personal]");
 
 const cardTemplate = $("[data-product-container]");
+console.log(cardTemplate);
 let products = [];
 
 fetch('../src/items.json')
@@ -208,15 +209,12 @@ $("#shopping-cart").on("click", () => {
 // Checkout Section
 // For GitHub
 $("#checkout").on("click", function () {
-    // window.location.href = "/public/checkout.html";
-    window.location.replace("/kalium-drugstore/public/checkout.html");
-});
+    // FOR LOCALHOST
+    window.location.href = "/public/checkout.html";
 
-// For Localhost
-// $("#checkout").on("click", function () {
-//     // window.location.href = "/public/checkout.html";
-//     window.location.replace("/public/checkout.html");
-// });
+    // FOR GITHUB
+    // window.location.href("/kalium-drugstore/public/checkout.html");
+});
 // GPT END
 // End Cart Section
 
@@ -249,96 +247,7 @@ $("#search-input").on("input", queryInput => {
 // End Search Section
 
 
-// SignUp Form
-let first_name = $("#form-first_name")
-let last_name = $("#form-last_name")
-let email = $("#form-email")
-let passwd = $("#form-passwd")
-let re_passwd = $("#form-re_passwd")
-$("#form-details").hide();
 
-
-$("#submit-btn").on("click", () => {
-    first_val = first_name.val();
-    last_val = last_name.val();
-    email_val = email.val();
-    passwd_val = passwd.val();
-
-    $("#det-first_name").attr("value", `${first_val}`);
-    $("#det-last_name").attr("value", `${last_val}`);
-    $("#det-email").attr("value", `${email_val}`);
-    $("#det-passwd").attr("value", "************");
-    $("#form-first_name").attr("disabled", true);
-    $("#form-last_name").attr("disabled", true);
-    $("#form-email").attr("disabled", true);
-    $("#form-passwd").attr("disabled", true);
-    $("#form-re_passwd").attr("disabled", true);
-    $("#submit-btn").attr("disabled", true);
-    $("#form-details").slideToggle("slow", () => { });
-})
-
-$("#det-passwd").on("mouseenter", () => {
-    $("#det-passwd").attr("value", `${passwd_val}`);
-})
-
-$("#det-passwd").on("click", () => {
-    if (passwd_val === "************") {
-        $("#det-passwd").attr("value", `${passwd_val}`);
-    } else {
-        $("#det-passwd").attr("value", "************");
-    }
-})
-
-$("#det-passwd").on("mouseleave", () => {
-    $("#det-passwd").attr("value", "************");
-})
-
-$("#incorrect-btn").on("click", () => {
-    $("#form-details").hide();
-    first_name.prop("value", "");
-    last_name.prop("value", "");
-    email.prop("value", "");
-    passwd.prop("value", "");
-    re_passwd.prop("value", "");
-
-    first_name.attr("disabled", false);
-    last_name.attr("disabled", false);
-    email.attr("disabled", false);
-    passwd.attr("disabled", false);
-    re_passwd.attr("disabled", false);
-    $("#submit-btn").attr("disabled", false);
-})
-
-passwd.on("input", () => {
-    if (passwd.val() != re_passwd.val()) {
-        $("#submit-btn").attr("disabled", true);
-        $("#submit-btn").text("Passwords do not match");
-    } else if (passwd.val() === "" && re_passwd.val() === "") {
-        $("#submit-btn").attr("disabled", false);
-        $("#submit-btn").text("Submit");
-    } else if (passwd.val() === re_passwd.val()) {
-        $("#submit-btn").attr("disabled", false);
-        $("#submit-btn").text("Submit");
-    } else {
-        $("#submit-btn").attr("disabled", false);
-    }
-})
-
-re_passwd.on("input", () => {
-    if (passwd.val() != re_passwd.val()) {
-        $("#submit-btn").attr("disabled", true);
-        $("#submit-btn").text("Passwords do not match");
-    } else if (passwd.val() === "" && re_passwd.val() === "") {
-        $("#submit-btn").attr("disabled", false);
-        $("#submit-btn").text("Submit");
-    } else if (passwd.val() === re_passwd.val()) {
-        $("#submit-btn").attr("disabled", false);
-        $("#submit-btn").text("Submit");
-    } else {
-        $("#submit-btn").attr("disabled", false);
-    }
-})
-// End SignUp Form
 
 // $("#open-modal").on("click", () => {
 //     // if ($("#modal").hasClass("hidden") === false) {

@@ -55,12 +55,10 @@ $("#complete-checkout").on("click", function () {
 });
 
 
-// For LocalHost
-// $("#back-to-home").on("click", function () {
-//     window.location.replace("/public/");
-// });
-
-// For GitHub
 $("#back-to-home").on("click", function () {
-    window.location.replace("/kalium-drugstore/public/");
+    // FOR LOCALHOST
+    window.location.href = "/public/";
+
+    // FOR GITHUB
+    // window.location.href = "/kalium-drugstore/public/";
 });
