@@ -1,3 +1,4 @@
+// Function to fetch cart items
 async function fetchCartItems() {
     const userId = localStorage.getItem("userId"); // Ensure this retrieves the user ID correctly
 
@@ -16,7 +17,7 @@ async function fetchCartItems() {
         }
         const cart = await response.json(); // Assuming the response is structured as expected
         console.log("Cart fetched:", cart); // Log the full cart object
-        renderCartItems(cart.items || []); // Pass items to render function, defaulting to an empty array if undefined
+        renderCartItems(cart.items || [], cart.totalPrice); // Pass items and totalCost to render function
     } catch (error) {
         console.error("Error fetching cart items:", error);
         alert("Could not fetch cart items. Please try again later.");
@@ -27,32 +28,25 @@ async function fetchCartItems() {
 fetchCartItems(); // Ensure this function is called after userId is set
 
 // Function to render cart items in the UI
-function renderCartItems(items) {
-    const cartContainer = $("#cart-items-container"); // Assuming you have a container to hold cart items
+function renderCartItems(items, totalCost) {
+    const cartContainer = $("#order-items"); // Assuming you have a container to hold cart items
     cartContainer.empty(); // Clear existing items
 
     if (!items || items.length === 0) {
         cartContainer.append("<p>Your cart is empty.</p>"); // Display message if cart is empty
+        $("#total-price").empty().append("<p>Total: ₱0.00</p>"); // Display total as zero
         return;
     }
-
+    
     items.forEach(item => {
         const product = item.product; // Access the product information from the item
         const cartItem = $(`
-            <div class="cart-item" data-id="${product._id}">
-                <img src="${product.imageUrl}" alt="${product.name}" />
-                <div class="cart-item-details">
-                    <h3>${product.name}</h3>
-                    <p>Price: ₱${product.price.toFixed(2)}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                    <div class="rating" data-rate="${product.rating || 0}">
-                        ${renderRating(product.rating || 0)}
-                    </div>
-                    <button class="remove-item" data-id="${product._id}">Remove</button>
-                </div>
-            </div>
-        `);
-
+            <div class="flex justify-around items-center">
+                <img class="w-28" src="${product.imageUrl}" alt="${product.name}">
+                <p>${product.name} &nbsp;</p>
+                <p>₱${product.price.toFixed(2)} x ${item.quantity}</p>
+            </div>`);
+        
         cartContainer.append(cartItem); // Append each item to the cart container
 
         // Set initial rating color if applicable
@@ -62,13 +56,18 @@ function renderCartItems(items) {
         attachRatingListeners(cartItem.find(".rating"), product);
         attachRemoveListener(cartItem.find(".remove-item"), product._id);
     });
+
+    // Display total price
+    $("#total-price").empty().append(`<p>Total: ₱${totalCost.toFixed(2)}</p>`); // Display total price
 }
 
 // Function to render the SVG for rating
 function renderRating(rating) {
     let stars = '';
     for (let i = 0; i < 5; i++) {
-        stars += `<svg class="pill-fill" fill="${i < rating ? '#56b5eb' : '#e4e4e4'}"></svg>`; // Change color based on rating
+        stars += `<svg class="pill-fill" width="20" height="20" fill="${i < rating ? '#56b5eb' : '#e4e4e4'}">
+                      <circle cx="10" cy="10" r="8" /> <!-- Example of a star shape -->
+                  </svg>`; // Change to a star icon if needed
     }
     return stars;
 }

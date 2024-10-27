@@ -43,6 +43,21 @@ const hideCartDropdown = () => {
     }, 300); // Adjust delay as needed
 };
 
+// Search Functionality
+const searchProducts = () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const allProducts = document.querySelectorAll("[data-container] > .card");
+    
+    allProducts.forEach(product => {
+        const productName = product.querySelector("[data-product-name]").textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+            product.style.display = ""; // Show matching product
+        } else {
+            product.style.display = "none"; // Hide non-matching product
+        }
+    });
+};
+
 // Document Event Listeners
 document.addEventListener("DOMContentLoaded", () => {
     startCarousel();
@@ -53,11 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchBtn?.addEventListener("click", () => {
         searchInput.disabled = !searchInput.disabled;
-        if (!searchInput.disabled) searchInput.focus();
+        if (!searchInput.disabled) {
+            searchInput.focus();
+            searchProducts(); // Call search function when search is opened
+        }
     });
 
     closeSearch?.addEventListener("click", () => {
         searchInput.disabled = true;
+        searchInput.value = ""; // Clear search input
+        searchProducts(); // Reset product display
     });
 
     userIcon?.addEventListener("click", () => {
