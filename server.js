@@ -1,49 +1,65 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import admin from 'firebase-admin';
-import { readFile } from 'fs/promises';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import mongoose from 'mongoose';
+import path from 'path';
+import { fileURLToPath } from 'url'; // Import for __dirname equivalent
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// Importing routes
+import userRoutes from './routes/userRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
 
-const serviceAccount = JSON.parse(
-  await readFile(
-    new URL('./serviceAccountKey.json', import.meta.url)
-  )
-);
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
-
-const db = admin.firestore();
 const app = express();
-app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
-app.use(express.static(join(__dirname, 'public')));
+// Set up __dirname for ES Modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Serve static files from the 'images' directory
-app.use('/images', express.static(join(__dirname, 'images')));
+// Middleware
+app.use(express.json()); // Parse JSON data
 
-app.post('/addProduct', async (req, res) => {
-  const newProduct = req.body;
+// Serving static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-  try {
-    const docRef = await db.collection('products').add(newProduct);
-    res.status(200).send({ message: 'Product added successfully', id: docRef.id });
-  } catch (error) {
-    res.status(500).send({ message: 'Failed to add product', error: error.message });
+// MongoDB Connection
+mongoose.connect(
+  'mongodb+srv://argiegopez11:9ExxJlMdJCFeWzrF@cluster0.lbjyu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   }
+).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((err) => {
+  console.error('MongoDB connection error:', err);
 });
 
+// Routes
+app.use('/users', userRoutes);
+app.use('/products', productRoutes);
+app.use('/cart', cartRoutes);
+
+// Fallback route for serving HTML
 app.get('/', (req, res) => {
-  res.sendFile(join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+app.get('/checkout', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'checkout.html'));
+});
+app.get('/signin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'signup_page.html'));
+});
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
 });
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+// Error handling middleware for cleaner error responses
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

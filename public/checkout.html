@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kalium | Checkout</title>
-  <link href="styles.css" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="css/animations.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
@@ -19,31 +19,15 @@
 
   <main class="mx-32 my-8">
     <div class="border-2 border-black rounded-lg relative">
-
       <div class="grid grid-cols-1 justify-center place-content-center mx-12 my-8">
-          <h1 class=" text-center text-4xl font-bold">YOUR ORDERS</h1>
+        <h1 class="text-center text-4xl font-bold">YOUR ORDERS</h1>
 
-        <div class="flex justify-around items-center">
-          <img class="w-28" src="../images/drugs/VYMADA_200MG_-_SACUBITRIL_VALSARTAN_TABLETS.original.jpg" alt="">
-          <p class="">CARDIX BetaBlocker 50mg Tab</p>
-          <p class="">₱ 99.00 x 3</p>
-        </div>
-        <div class="flex justify-around items-center">
-          <img class="w-28" src="../images/drugs/fenofibrate.webp" alt="">
-          <p class="">FENOFIBE Fenofibrate 200mg Cap</p>
-          <p class="">₱ 18.00 x 12</p>
-        </div>
-        <div class="flex justify-around items-center">
-          <img class="w-28" src="../images/drugs/lipidex.jpg" alt="">
-          <p class="">LIPIDEX Atorvastatin 40mg Tab</p>
-          <p class="">₱ 42.00 x 8</p>
-        </div>
+        <div id="order-items" class="flex flex-col items-center"></div>
 
         <hr class="my-2 border border-tertiary-500">
-
         <div class="flex mr-48 justify-end items-center">
           <p class="mr-8">TOTAL:</p>
-          <p class="">₱ 849.00</p>
+          <p id="total-price" class="">₱ 0.00</p>
         </div>
 
         <hr class="my-2 border border-tertiary-500">
@@ -244,6 +228,7 @@
 
           </div>
           <h2 class="text-center">How was your experience?</h2>
+          <h2 class="text-center">Was it bad?</h2>
       <button id="back-to-home" class="mt-4 rounded border-2 border-secondary-500 bg-secondary-500 p-1 px-24 text-tertiary-800
                 hover:scale-105 hover:bg-secondary-600 active:scale-110" type="button">Back to Homepage</button>
         </div>
@@ -253,7 +238,7 @@
 
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="checkout.js"> </script>
+  <script src="js/checkout.js"> </script>
 </body>
 
 </html>

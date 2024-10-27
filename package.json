@@ -11,8 +11,13 @@
     "license": "ISC",
     "description": "The Kalium Website made with TailwindCSS and jQuery",
     "dependencies": {
-        "express": "^4.20.0",
+        "bcrypt": "^5.1.1",
+        "body-parser": "^1.20.3",
+        "express": "^4.21.1",
         "firebase-admin": "^12.4.0",
+        "mongodb": "^6.10.0",
+        "mongoose": "^8.7.2",
+        "nodemon": "^3.1.7",
         "tailwindcss": "^3.4.9",
         "url": "^0.11.4"
     },
