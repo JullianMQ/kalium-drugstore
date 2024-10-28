@@ -6,6 +6,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kalium Drugstore</title>
+  <style>
+    #map {
+        height: 400px; /* Set the height of the map */
+        width: 100%; /* Set the width of the map */
+    }
+</style>
   <link href="css/styles.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,6 +20,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
+   
 </head>
 
 <body class="bg-tertiary-800">
@@ -302,7 +309,7 @@
     </div>
 
     <div class="relative hidden lg:block">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1227.5805391832703!2d120.57945520865017!3d15.102235605813963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f39937cdc673%3A0xbe12dd8db932f0c7!2sKalium%20Drugstore!5e1!3m2!1sen!2sph!4v1730093808692!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div id="map"></div>
       <!-- <img -->
       <!--   class="absolute rounded-lg lg:right-16 lg:translate-y-10 xl:right-28 xl:top-6 2xl:right-72 2xl:top-0 2xl:w-[45rem] 2xl:-translate-y-2" -->
       <!--   src="../images/portrait-beautiful-young-asian-woman-with-call-center-customer-care-service-center-yellow-color-wall-removebg.png" -->
@@ -399,6 +406,27 @@
   <!-- end footer -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="js/index.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrlFf_yYOXPtlXywY6xWtB63GOmbYpdQo&callback=initMap"></script>
+
+  <script>
+    function initMap() {
+        const mapDiv = document.getElementById("map");
+        const location = { lat: 15.10240151799393, lng: 120.58020613798634 }; // Example coordinates
+        const map = new google.maps.Map(mapDiv, {
+            zoom: 15,
+            center: location,
+        });
+
+        const marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initMap();
+    });
+</script>
 </body>
 
 </html>
