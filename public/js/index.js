@@ -47,7 +47,7 @@ const hideCartDropdown = () => {
 const searchProducts = () => {
     const searchTerm = searchInput.value.toLowerCase();
     const allProducts = document.querySelectorAll("[data-container] > .card");
-    
+
     allProducts.forEach(product => {
         const productName = product.querySelector("[data-product-name]").textContent.toLowerCase();
         if (productName.includes(searchTerm)) {
@@ -116,6 +116,10 @@ const itemConstruct = (prodName, prodPrice, prodImageURL, prodId) => `
     </div>
 `;
 
+const cartItemConstruct = () => {
+
+}
+
 // Add to Cart Functionality
 const addToCart = async (product) => {
     const userId = localStorage.getItem("userId");
@@ -139,7 +143,6 @@ const addToCart = async (product) => {
             throw new Error(errorResponse.error || 'Network response was not ok');
         }
 
-        console.log('Cart updated:', await response.json());
         updateCartDisplay();
     } catch (error) {
         console.error('Error adding to cart:', error);
@@ -163,9 +166,36 @@ const updateCartDisplay = async () => {
         if (cartItemsContainer) {
             cartItemsContainer.innerHTML = cart.items
                 .map(item => `
-                    <li>
-                        ${item.product.name} - ₱${item.product.price.toFixed(2)} (x${item.quantity})
-                        <img src="${item.product.imageUrl}" alt="${item.product.name}" class="cart-item-image" />
+                    <li data-cart-item class="flex items-center border justify-center gap-2">
+                        <img class="max-w-24" src="${item.product.imageUrl}" alt="${item.product.name}">
+                        <p id="prodName">${item.product.name}</p>
+                          <div class="flex flex-col gap-2 justify-center items-center">
+
+                              <div class="flex border border-primary-400">
+                                <button id="minus-item" class="border-2 px-[.10rem] bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700  active:scale-110">
+                                  <span class="text-tertiary-600 align-text-top font-bold ">
+                                  -
+                                  </span>
+                                </button>
+                                <input id="qty-item" class="max-w-4 text-center" type="number" value="${item.quantity}" min="1">
+                                <button id="add-item" class="border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110">
+                                  <span class="text-tertiary-600 align-text-top font-bold ">
+                                  +
+                                  </span>
+                                </button>
+                              </div>
+
+                            <button id="del-item" class="hover:scale-105 active:scale-125 hover:stroke-red-600 stroke-red-700" type="button">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="" class="size-4">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                              </svg>
+                            </button>
+                          </div>
+                        <div class="hidden">
+                            ${item.product.name} - ₱${item.product.price.toFixed(2)} (x${item.quantity})
+                        </div>
                     </li>
                 `)
                 .join("");
