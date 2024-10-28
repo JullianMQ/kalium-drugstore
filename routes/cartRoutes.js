@@ -74,32 +74,54 @@ router.delete('/:userId/remove', async (req, res) => {
   const { productId } = req.body;
 
   if (!productId) {
+    console.log("Product ID not provided in request body.");
     return res.status(400).json({ message: 'Product ID is required' });
   }
 
   try {
+    // Fetch the user's cart and populate items
     const cart = await Cart.findOne({ user: req.params.userId }).populate('items.product');
     if (!cart) {
+      console.log("Cart not found for user:", req.params.userId);
       return res.status(404).json({ message: 'Cart not found' });
     }
 
-    const itemIndex = cart.items.findIndex(item => item.product.toString() === productId);
+    // Check if the product exists in the cart
+    console.log("Cart items:", cart.items.map(item => item.product.toString()));
+    console.log("Requested Product ID:", productId);
+
+    const itemIndex = cart.items.findIndex(item => item.product && item.product._id.toString() === productId);
     if (itemIndex === -1) {
+      console.log("Product not found in cart items for ID:", productId);
       return res.status(404).json({ message: 'Product not found in cart' });
     }
 
+    // Product found in cart
     const item = cart.items[itemIndex];
-    const product = await Product.findById(productId); // Fetch product to get the price
-    cart.totalPrice -= item.quantity * product.price; // Adjust total price
+
+    // Fetch the product from the Product collection to verify price
+    const product = await Product.findById(productId);
+    if (!product) {
+      console.log("Product not found in database:", productId);
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    // Adjust total price and remove the item from the cart
+    cart.totalPrice -= item.quantity * product.price;
+    console.log("Updated Total Price:", cart.totalPrice);
 
     cart.items.splice(itemIndex, 1); // Remove item from cart
 
+    // Save the updated cart
     await cart.save();
+    console.log("Item removed successfully from cart. Updated Cart:", cart);
+
     res.status(200).json({ message: 'Item removed from cart', cart });
   } catch (err) {
-    console.error(err);
+    console.error("Error during cart item removal:", err);
     res.status(500).json({ error: 'Error removing item from cart' });
   }
 });
+
 
 export default router; // Ensure this exports the router

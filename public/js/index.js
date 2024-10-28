@@ -251,18 +251,3 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchProducts();
 });
 
-//MAP
-// function initMap() {
-//     // The location of your desired coordinates
-//     const location = { lat: -34.397, lng: 150.644 }; // Example coordinates
-//     // The map, centered at the specified location
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 8, // Zoom level
-//         center: location, // Center the map at the specified location
-//     });
-//     // The marker, positioned at the location
-//     const marker = new google.maps.Marker({
-//         position: location, // Position of the marker
-//         map: map, // The map on which to place the marker
-//     });
-// }
