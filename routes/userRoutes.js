@@ -76,5 +76,14 @@ router.get('/:id', async (req, res) => {
         res.status(400).json({ error: 'Error fetching user' });
     }
 });
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find().select('-password');;
+        res.json(users);
+    } catch (err) {
+        console.error(err); // Log the error for debugging
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 export default router; // Ensure this exports the router
