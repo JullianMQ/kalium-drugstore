@@ -149,6 +149,90 @@ const addToCart = async (product) => {
     }
 };
 
+const addOperator = async function (cart) {
+    const children = cartItemsContainer.children
+
+    for (const e of children) {
+        const addTo = e.querySelector("#add-item")
+        const subTo = e.querySelector("#minus-item")
+        const delTo = e.querySelector("#del-item")
+        addTo.addEventListener("click", function () {
+            const index = this.parentElement.parentElement.parentElement.getAttribute("data-item-id")
+            const itemId = cart.items[index].product._id
+            addQuantity(itemId)
+        })
+        subTo.addEventListener("click", function () {
+            const index = this.parentElement.parentElement.parentElement.getAttribute("data-item-id")
+            const itemId = cart.items[index].product._id
+            subQuantity(itemId)
+        })
+        delTo.addEventListener("click", function () {
+            const index = this.parentElement.parentElement.getAttribute("data-item-id")
+            const itemId = cart.items[index].product._id
+            delItem(itemId)
+        })
+
+    }
+
+}
+
+const addQuantity = async (itemId) => {
+    const userId = localStorage.getItem("userId");
+
+    try {
+        await fetch(`/cart/${userId}/add`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId: itemId, quantity: 1 }),
+        });
+
+        updateCartDisplay();
+    } catch (error) {
+        console.error(error.message)
+        console.error(error.code)
+    }
+}
+
+const subQuantity = async (itemId) => {
+    const userId = localStorage.getItem("userId")
+
+    try {
+        await fetch(`/cart/${userId}/subtract`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId: itemId, quantity: 1 }),
+        });
+
+        updateCartDisplay();
+    } catch (error) {
+        console.error(error.message)
+        console.error(error.code)
+    }
+}
+
+const delItem = async (itemId) => {
+    const userId = localStorage.getItem("userId")
+
+    try {
+        await fetch(`/cart/${userId}/remove`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId: itemId }),
+        });
+
+        updateCartDisplay();
+    } catch (error) {
+        console.error(error.message)
+        console.error(error.code)
+    }
+}
+
 // Update Cart Display Function
 const updateCartDisplay = async () => {
     const userId = localStorage.getItem("userId");
@@ -163,10 +247,10 @@ const updateCartDisplay = async () => {
         if (!response.ok) throw new Error('Failed to fetch cart');
 
         const cart = await response.json();
+
         if (cartItemsContainer) {
-            cartItemsContainer.innerHTML = cart.items
-                .map(item => `
-                    <li data-cart-item class="flex items-center border justify-center gap-2">
+            cartItemsContainer.innerHTML = cart.items.map((item, index) => `
+                    <li data-item-id="${index}" class="flex items-center border justify-center gap-2">
                         <img class="max-w-24" src="${item.product.imageUrl}" alt="${item.product.name}">
                         <p id="prodName">${item.product.name}</p>
                           <div class="flex flex-col gap-2 justify-center items-center">
@@ -178,7 +262,7 @@ const updateCartDisplay = async () => {
                                   </span>
                                 </button>
                                 <input id="qty-item" class="max-w-4 text-center" type="number" value="${item.quantity}" min="1">
-                                <button id="add-item" class="border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110">
+                                <button id="add-item" class="border-2 bg-primary-400 hover:bg-primary-700 border-primary-400 hover:border-primary-700 active:scale-110" >
                                   <span class="text-tertiary-600 align-text-top font-bold ">
                                   +
                                   </span>
@@ -199,6 +283,7 @@ const updateCartDisplay = async () => {
                     </li>
                 `)
                 .join("");
+            addOperator(cart);
             document.querySelector("[data-cart-total]").textContent = cart.items
                 .reduce((total, item) => total + (item.product.price * item.quantity), 0)
                 .toFixed(2);
