@@ -55,6 +55,46 @@ router.post('/:userId/add', validateAddToCart, async (req, res) => {
   }
 });
 
+router.put('/:userId/subtract', validateAddToCart, async (req, res) => {
+  const { productId, quantity } = req.body;
+
+  try {
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found' });
+    }
+
+    let cart = await Cart.findOne({ user: req.params.userId });
+    
+    if (!cart) {
+      cart = new Cart({ user: req.params.userId, items: [], totalPrice: 0 });
+    }
+
+    // Check if product is already in cart
+    const existingItem = cart.items.find(item => item.product.toString() === productId);
+    if (existingItem) {
+      existingItem.quantity -= quantity; // Increase quantity if already exists
+    } else {
+      cart.items.push({ product: productId, quantity }); // Add new item to cart
+    }
+
+    // Update total price
+    cart.totalPrice += product.price * quantity;
+
+    await cart.save();
+    res.status(200).json({ message: 'Item added to cart', cart });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error adding item to cart' });
+  }
+});
+
+
 // Get cart for a user
 router.get('/:userId', async (req, res) => {
   try {
